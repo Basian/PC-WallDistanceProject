@@ -110,7 +110,7 @@ turbulence production/destruction is the distance of a grid cell to
 the nearest solid wall; simply known as the wall distance, $d_{wall}$.
 
 
-\subsubsection{Cell-Centered, Finite Volume Discretization}
+\subsubsection{Cell-centered, Finite Volume discretization}
 The numerical method that this investigation directly supports is a
 cell-centered, finite volume discretization, although it could be
 readily extended to other methods with some modifications. The finite
@@ -121,7 +121,7 @@ updated, based on boundary fluxes computed at the interface of each
 computational cell. The value of interest here is the $d_{wall}$
 variable required by the turbulence model.
 
-\subsubsection{Moving Mesh Calculation}
+\subsubsection{Moving mesh calculation}
 Some investigations that use fluid simulations are interested in moving
 body problems such as store separation for aircraft, and rotating
 machinery, among others. One way to accomplish this is to use
@@ -158,7 +158,12 @@ problems.
 The goal for this project is to implement a parallel algorithm for
 computing the wall distance for a computational grid on a GPU. The
 benefit of implementing this portion of the CFD code will be improved
-efficiency for moving body CFD calculations.\\
+efficiency for moving body CFD calculations. In this investigation,
+two primary methods will be investigated for computing the wall
+distance field; a brute-force algorithm, and also an advancing
+boundary algorithm. Each of these methods can be parallelized in a
+number of different ways, and the details of each method along with
+parallelization options will be discussed in detail. \\
 
 Primary objectives:
 \begin{itemize}
@@ -258,8 +263,6 @@ However, the step complexity is much lower.  Assuming infinite threads, the wall
   \item S(n) ~ log m = O(log m).
 \end{itemize}
 
-For example, if we have 65,536 solid faces, the second parallel implementation can compute the wall distance in 16 steps, compared to 65,536 steps in the serial implementation.
-
 \subsection{Advancing boundary algorithm}
 The second method for computing the wall distance field for this
 investigation is an advancing boundary algorithm that relies on creating an
@@ -315,7 +318,9 @@ are outlined in the list below:
   distance. Returns minimum wall distance.
 \end{itemize}.
 
-A block diagram of the algorithm is shown in Figure~\ref{f:ag_block}.
+A block diagram of the algorithm is shown in
+Figure~\ref{f:ag_block}. Additionally, a sequence diagram outlining
+function/kernel calls is shown in Figure~\ref{f:ag_sequence}.
 
 \begin{figure}
   \centering
@@ -324,9 +329,18 @@ A block diagram of the algorithm is shown in Figure~\ref{f:ag_block}.
   \label{f:ag_block}
 \end{figure}
 
+
+\begin{figure}
+  \centering
+  \includegraphics[trim=0.0cm 11.0cm 0.0cm 0.0cm, clip=true, width=0.7\linewidth]{figures/auxiliary_grid/wallDistance_sequence}
+  \caption{Ausiliary grid method: sequence diagram}
+  \label{f:ag_sequence}
+\end{figure}
+
 \section{Performance goals}
 
 \subsection{Brute force method}
+The first parallel brute force implementation is not expected to have a significant impact on overall throughput, as the atomic min operation will limit the amount of parallelism that can be performed.  Each thread may have to wait a long time before updating the minimum wall distance.  However, the second parallel implementation is expected to complete execution in a much shorter time period than the serial implementation.  The speedup ratio is expected to be as close to m/(log m) as possible.  For example, if we have 65,536 solid faces, the second parallel implementation should be able to compute the wall distance in 16 steps, compared to 65,536 steps in the serial implementation. Potential bottlenecks for this performance goal are the number of blocks and threads available, and accessing global memory. In order to achieve the most efficient parallel implementation, several techniques will be explored such as assigning an efficient number of block and thread sizes, along with efficient memory usage such as coalesced memory access, and use of available shared memory and thread local memory.
 
 \subsection{Advancing boundary method}
 The advancing boundary method is largely experimental and it is
