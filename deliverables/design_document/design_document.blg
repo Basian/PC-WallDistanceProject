@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: design_document.aux
+The style file: aiaa.bst
+Database file #1: bibliography.bib
+You're missing a field part---line 5 of file bibliography.bib
+ :   type =  
+ :           ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "f:chimera_grid"
+Name 1 in "K. Huebner, and K. Johannsen" has a comma at the end for entry default:09
+while executing---line 1243 of file aiaa.bst
+Warning--empty institution in default:09
+You've used 1 entry,
+            2292 wiz_defined-function locations,
+            584 strings with 4683 characters,
+and the built_in function-call counts, 161 in all, are:
+= -- 10
+> -- 8
+< -- 0
++ -- 3
+- -- 2
+* -- 14
+:= -- 33
+add.period$ -- 2
+call.type$ -- 1
+change.case$ -- 1
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 7
+empty$ -- 14
+format.name$ -- 2
+if$ -- 29
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 7
+num.names$ -- 1
+pop$ -- 3
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 2
+stack$ -- 0
+substring$ -- 1
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 1
+width$ -- 2
+write$ -- 11
+(There were 2 error messages)
