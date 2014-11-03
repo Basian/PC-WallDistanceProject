@@ -1,3 +1,1 @@
-FILE( GLOB PREPROC_NAMES *.cxx *.h )
-
-ADD_LIBRARY( Preproc STATIC ${PREPROC_NAMES} )
+ADD_LIBRARY( Preproc STATIC readmesh.f90 preproc.cxx )
