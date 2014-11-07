@@ -40,6 +40,8 @@ DO GRD=1,NBLK
    &      ((Z(I,J),I=1,NI),J=1,NJ)
 END DO
 
+
+CLOSE(7)
 !--------------------------------
 !	COMPUTE CELL CENTERS
 !--------------------------------
@@ -114,5 +116,8 @@ CC_Y_OUT = C_LOC(CC_Y(1))
 FC_X_OUT = C_LOC(FC_X(1))
 FC_Y_OUT = C_LOC(FC_Y(1))
 
+CLOSE(8)
+CLOSE(9)
+CLOSE(10)
 
 END SUBROUTINE readmesh

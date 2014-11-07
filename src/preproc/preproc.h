@@ -8,7 +8,7 @@
 #ifndef PREPROC_H_
 #define PREPROC_H_
 
-void preproc();
+void preproc(int &,int &, double *&, double *&, double *&, double *&);
 
 
 

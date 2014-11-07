@@ -10,13 +10,13 @@ IMPLICIT NONE
 
 INTEGER :: M,N,I,J,K,L
 INTEGER, INTENT(IN) :: NI,NJ
-REAL, DIMENSION(NI,NJ), INTENT(IN) :: X,Y
-REAL, DIMENSION(NI-1,NJ-1,2), INTENT(IN) :: CT
-REAL, DIMENSION(NI-1,NJ-1,5), INTENT(IN) :: VAR_C
-REAL, DIMENSION(NI,NJ,5), INTENT(OUT) :: VAR_V
-REAL, DIMENSION(5) :: QSUM
-REAL, DIMENSION(4) :: R
-REAL :: RSUM,TEST
+REAL*8, DIMENSION(NI,NJ), INTENT(IN) :: X,Y
+REAL*8, DIMENSION(NI-1,NJ-1,2), INTENT(IN) :: CT
+REAL*8, DIMENSION(NI-1,NJ-1), INTENT(IN) :: VAR_C
+REAL*8, DIMENSION(NI,NJ,5), INTENT(OUT) :: VAR_V
+REAL*8, DIMENSION(5) :: QSUM
+REAL*8, DIMENSION(4) :: R
+REAL*8 :: RSUM,TEST
 
 DO I=1,NI
    DO J=1,NJ
@@ -28,19 +28,19 @@ DO I=1,NI
 
       IF (I==1 .AND. J==1) THEN
          DO K=1,5
-            QV(I,J,K) = QC(I,J,K)      !Corner one
+            VAR_V(I,J,K) = VAR_C(I,J)      !Corner one
          END DO
       ELSE IF (I==NI .AND. J==1) THEN
          DO K=1,5
-            QV(I,J,K) = QC(I-1,1,K)    !Corner two
+            VAR_V(I,J,K) = VAR_C(I-1,1)    !Corner two
          END DO
       ELSE IF (I==NI .AND. J==NJ) THEN
          DO K=1,5
-            QV(I,J,K) = QC(I-1,J-1,K)  !Corner three
+            VAR_V(I,J,K) = VAR_C(I-1,J-1)  !Corner three
          END DO
       ELSE IF (I==1 .AND. J==NJ) THEN
          DO K=1,5
-            QV(I,J,K) = QC(I,J-1,K)    !Corner four
+            VAR_V(I,J,K) = VAR_C(I,J-1)    !Corner four
          END DO
       ELSE IF (I==1 .AND. J/=1 .AND. J/=NJ) THEN   !Left boundary 
          R(1) = SQRT((X(I,J)-CT(I,J-1,1))**2.0 + (Y(I,J)-CT(I,J-1,2))**2.0)
@@ -52,8 +52,8 @@ DO I=1,NI
          END DO
 
          DO K=1,5
-            QSUM(K) = QSUM(K) + QC(I,J-1,K)/R(1)
-            QV(I,J,K) = (QSUM(K) + QC(I,J,K)/R(2))/RSUM
+            QSUM(K) = QSUM(K) + VAR_C(I,J-1)/R(1)
+            VAR_V(I,J,K) = (QSUM(K) + VAR_C(I,J)/R(2))/RSUM
          END DO
       ELSE IF (J==1 .AND. I/=1 .AND. I/=NI) THEN   !Bottom boundary
          R(1) = SQRT((X(I,J)-CT(I-1,J,1))**2.0 + (Y(I,J)-CT(I-1,J,2))**2.0)
@@ -65,8 +65,8 @@ DO I=1,NI
          END DO
 
          DO K=1,5
-            QSUM(K) = QSUM(K) + QC(I-1,J,K)/R(1)
-            QV(I,J,K) = (QSUM(K) + QC(I,J,K)/R(2))/RSUM
+            QSUM(K) = QSUM(K) + VAR_C(I-1,J)/R(1)
+            VAR_V(I,J,K) = (QSUM(K) + VAR_C(I,J)/R(2))/RSUM
          END DO
       ELSE IF (I==NI .AND. J/=1 .AND. J/=NJ) THEN     !Right boundary
          R(1) = SQRT((X(I,J)-CT(I-1,J-1,1))**2.0 + (Y(I,J)-CT(I-1,J-1,2))**2.0)
@@ -78,8 +78,8 @@ DO I=1,NI
          END DO
 
          DO K=1,5
-            QSUM(K) = QSUM(K) + QC(I-1,J-1,K)/R(1)
-            QV(I,J,K) = (QSUM(K) + QC(I-1,J,K)/R(2))/RSUM
+            QSUM(K) = QSUM(K) + VAR_C(I-1,J-1)/R(1)
+            VAR_V(I,J,K) = (QSUM(K) + VAR_C(I-1,J)/R(2))/RSUM
          END DO
       ELSE IF (J==NJ .AND. I/=1 .AND. I/=NI) THEN     !Top boundary
          R(1) = SQRT((X(I,J)-CT(I-1,J-1,1))**2.0 + (Y(I,J)-CT(I-1,J-1,2))**2.0)
@@ -91,8 +91,8 @@ DO I=1,NI
          END DO
 
          DO K=1,5
-            QSUM(K) = QSUM(K) + QC(I-1,J-1,K)/R(1)
-            QV(I,J,K) = (QSUM(K) + QC(I,J-1,K)/R(2))/RSUM
+            QSUM(K) = QSUM(K) + VAR_C(I-1,J-1)/R(1)
+            VAR_V(I,J,K) = (QSUM(K) + VAR_C(I,J-1)/R(2))/RSUM
          END DO
       ELSE                                            !Interior points
          R(1) = SQRT((X(I,J)-CT(I-1,J-1,1))**2.0 + (Y(I,J)-CT(I-1,J-1,2))**2.0)
@@ -102,17 +102,17 @@ DO I=1,NI
          RSUM = 1/R(1) + 1/R(2) + 1/R(3) + 1/R(4)
 
          DO K=1,5
-            QSUM(K) = QSUM(K) + QC(I-1,J-1,K)/R(1)
-            QSUM(K) = QSUM(K) + QC(I,J-1,K)/R(2)
-            QSUM(K) = QSUM(K) + QC(I,J,K)/R(3)
-            QV(I,J,K) = (QSUM(K) + QC(I-1,J,K)/R(4))/RSUM
+            QSUM(K) = QSUM(K) + VAR_C(I-1,J-1)/R(1)
+            QSUM(K) = QSUM(K) + VAR_C(I,J-1)/R(2)
+            QSUM(K) = QSUM(K) + VAR_C(I,J)/R(3)
+            VAR_V(I,J,K) = (QSUM(K) + VAR_C(I-1,J)/R(4))/RSUM
          END DO
       END IF
 
    END DO
 END DO
 
-END SUBROUTINE CENTER2VERTEX
+END SUBROUTINE cell_to_vertex
 
 
 
