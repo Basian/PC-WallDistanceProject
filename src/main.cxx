@@ -8,12 +8,17 @@
 #include <iostream>
 #include "preproc/preproc.h"
 #include "radius/radius.h"
+
+extern "C" {
+#include "advancingBoundary/serial/ab_serial.h"
+}
+
 #include "postproc/postproc.h"
 #include "bruteforce/bruteforce.h"
 
 int main(){
 	// Grid sizes
-	int ni,nj,csize,fsize;
+	int ni,nj,size_c,size_f;
 
 	// cell and face arrays
 	double * xc;
@@ -28,26 +33,28 @@ int main(){
 	preproc(ni,nj,xc,yc,xf,yf);
 	
 	// cell and face sizes
-	csize = (ni-1)*(nj-1);
-	fsize = (ni-1);
+	size_c = (ni-1)*(nj-1);
+	size_f = (ni-1);
 
 	double * wallDist;
-	wallDist = new double[csize];
+	wallDist = new double[size_c];
 
 	// BRUTEFORCE SERIAL WALLDISTANCE CALCULATION
-	SerialBF(csize,fsize,xc,yc,xf,yf,wallDist);
+	SerialBF(size_c,size_f,xc,yc,xf,yf,wallDist);
 	
 	// WRITE TO FILE
 	postproc(ni,nj,wallDist);
 	
 	// RADIUS CALCULATION
-	//double * r;
-	//r = new double[csize];
-	//radius(csize,xc,yc,r);
-
+	double * r;
+	r = new double[size_c];
+	radius(size_c,xc,yc,r);
 
 	// WRITE TO FILE
 	//postproc(ni,nj,r);
+
+	// ABSerial
+	ab_serial(xc,yc,xf,yf,size_c,size_f);
 
 
 	///////////////////////////////////////////////////
