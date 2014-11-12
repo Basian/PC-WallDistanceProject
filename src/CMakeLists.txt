@@ -9,10 +9,11 @@ CONFIGURE_FILE( ${PROJECT_SOURCE_DIR}/grid/grid.x ${EXECUTABLE_OUTPUT_PATH} COPY
 ADD_SUBDIRECTORY(preproc)
 ADD_SUBDIRECTORY(radius)
 ADD_SUBDIRECTORY(postproc)
+ADD_SUBDIRECTORY(bruteforce)
 
 # Add main program
 ADD_EXECUTABLE( walldistcalc main.cxx )
-TARGET_LINK_LIBRARIES( walldistcalc Preproc Radius Postproc)
+TARGET_LINK_LIBRARIES( walldistcalc BruteForce Preproc Radius Postproc)
 
 # Install executable
 INSTALL(TARGETS walldistcalc RUNTIME DESTINATION $(CMAKE_BINARY_DIR)/bin)
