@@ -1,0 +1,41 @@
+/*
+ * ABserial.c
+ *
+ *  Created on: Nov 11, 2014
+ *      Author: nathan
+ */
+
+#include "ab_serial.h"
+#include "boundBox.h"
+#include "computeAuxiliaryGrid.h"
+#include <stdio.h>
+
+void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, int size_f){
+
+	double xmin;
+	double xmax;
+	double ymin;
+	double ymax;
+
+	////////////////////////////////////////////////////////////////////
+	//		Pre-processing
+	////////////////////////////////////////////////////////////////////
+
+	// Create geometry bounding box
+	printf("Computing Bounding Box \n");
+	boundBox(xf,yf,size_f,&xmin,&xmax,&ymin,&ymax);
+
+	printf("xmin,xmax,ymin,ymax\n");
+	printf("%f, %f, %f, %f\n",xmin,xmax,ymin,ymax);
+
+
+	// Create auxiliary grid
+	int resI=10;
+	int resJ=10;
+	computeAuxiliaryGrid(xmin,xmax,ymin,ymax,resI,resJ);
+
+
+
+
+}
+

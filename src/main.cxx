@@ -8,11 +8,16 @@
 #include <iostream>
 #include "preproc/preproc.h"
 #include "radius/radius.h"
+
+extern "C" {
+#include "advancingBoundary/serial/ab_serial.h"
+}
+
 #include "postproc/postproc.h"
 
 int main(){
 	// Grid sizes
-	int ni,nj,size;
+	int ni,nj,size_c,size_f;
 
 	// cell and face arrays
 	double * xc;
@@ -25,16 +30,20 @@ int main(){
 
 	// READ GRID AND RETURN CELL AND FACE ARRAYS
 	preproc(ni,nj,xc,yc,xf,yf);
-	size = (ni-1)*(nj-1);
+	size_c = (ni-1)*(nj-1);
+	size_f = (ni-1);
 
 	double * wallDist;
-	wallDist = new double[size];
+	wallDist = new double[size_c];
 
 
 	// RADIUS CALCULATION
 	double * r;
-	r = new double[size];
-	radius(size,xc,yc,r);
+	r = new double[size_c];
+	radius(size_c,xc,yc,r);
+
+	// ABSerial
+	ab_serial(xc,yc,xf,yf,size_c,size_f);
 
 
 	// WRITE TO FILE

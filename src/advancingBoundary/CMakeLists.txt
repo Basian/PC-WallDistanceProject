@@ -1,0 +1,4 @@
+ADD_SUBDIRECTORY(serial)
+
+ADD_LIBRARY(advancingBoundary STATIC $<TARGET_OBJECTS:ABserial> )
+
