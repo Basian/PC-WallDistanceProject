@@ -8,6 +8,7 @@
 #include "ab_serial.h"
 #include "boundBox.h"
 #include "computeAuxiliaryGrid.h"
+#include "writecell.h"
 #include <stdio.h>
 
 void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, int size_f){
@@ -32,9 +33,12 @@ void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, i
 	// Create auxiliary grid
 	int resI=10;
 	int resJ=10;
-	computeAuxiliaryGrid(xmin,xmax,ymin,ymax,resI,resJ);
+	int numCells = (resI-1)*(resJ-1);
+	struct cell * auxCells;
+	auxCells = (struct cell *)malloc(numCells*sizeof(struct cell));
 
-
+	computeAuxiliaryGrid(xmin,xmax,ymin,ymax,resI,resJ,auxCells);
+	writecell(auxCells,numCells);
 
 
 }

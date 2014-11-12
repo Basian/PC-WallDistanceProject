@@ -9,7 +9,7 @@
 #define NODE_H_
 
 
-struct node{
+struct cell{
 	int xmin;
 	int xmax;
 	int ymin;
