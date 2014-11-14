@@ -103,9 +103,8 @@ DO I=1,NI-1
     FC_X(L) = (X(I,1) + X(I+1,1))/2.0
     FC_Y(L) = (Y(I,1) + Y(I+1,1))/2.0
 
-    R = SQRT(FC_X(L)**2.0 + FC_Y(L)**2.0)
 
-    WRITE(10,*) FC_X(L), FC_Y(L), R
+    WRITE(10,*) FC_X(L), FC_Y(L)
     L = L + 1
 END DO
 

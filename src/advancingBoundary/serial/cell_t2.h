@@ -5,12 +5,10 @@
  *      Author: nathan
  */
 
-#ifndef NODE_H_
-#define NODE_H_
+#ifndef NODE_T2_H_
+#define NODE_T2_H_
 
-#include "face.h"
-
-struct cell{
+struct cell_t2{
 
 	// Cell Boundaries
 	double xmin, xmax;
@@ -18,10 +16,12 @@ struct cell{
 	double xcenter, ycenter;
 
 	// Included faces linked list
-	struct face * root;
+	int	faceNum;//=0;
+	double xface[20];
+	double yface[20];
 
 };
 
 
 
-#endif /* NODE_H_ */
+#endif /* NODE_T2_H_ */

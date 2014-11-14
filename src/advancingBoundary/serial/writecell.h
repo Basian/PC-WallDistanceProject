@@ -10,7 +10,7 @@
 
 #include "cell.h"
 
-void writecell(struct cell * cellArray, int size);
+void writecell(struct cell * cellArray, int size, int filename);
 //void writecell();
 
 #endif /* WRITECELL_H_ */

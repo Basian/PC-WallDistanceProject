@@ -9,7 +9,7 @@
 #define ABSERIAL_H_
 
 
-void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, int size_f);
+void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, int size_f, double * wallDist);
 
 
 #endif /* ABSERIAL_H_ */

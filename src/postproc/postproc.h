@@ -8,7 +8,7 @@
 #ifndef POSTPROC_H_
 #define POSTPROC_H_
 
-void postproc(int,int,double *);
+void postproc(int,int,double *,int);
 
 
 

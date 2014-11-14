@@ -8,8 +8,11 @@
 #include <math.h>
 #include <stdio.h>
 #include "bruteforce.h"
+#include <time.h>
 
 void SerialBF(int csize, int fsize, double * xc, double * yc, double * xf, double * yf, double * wallDist){
+	clock_t start = clock(), diff;
+
 
 	// Array of distances from each face to a cell center
 	double fdistance[fsize];
@@ -37,6 +40,12 @@ void SerialBF(int csize, int fsize, double * xc, double * yc, double * xf, doubl
 		wallDist[i] = minfdistance;
 	}
 	
+
+	diff = clock() - start;
+	int msec = diff * 1000 / CLOCKS_PER_SEC;
+	printf("Serial brute force algorithm completed in: %d milliseconds\n", msec%1000);
+
+
 	// DEBUGGING CODE
 	FILE * fp;
 	fp = fopen ("BFSerialoutput.txt", "wb\r\n");

@@ -10,7 +10,7 @@
 
 #include "cell.h"
 
-void computeAuxiliaryGrid(int xmin, int xmax, int ymin, int ymax, int resI, int resJ, struct cell * auxCells);
+void computeAuxiliaryGrid(double xmin, double xmax, double ymin, double ymax, int resI, int resJ, struct cell * auxCells);
 
 
 #endif /* COMPUTEAUXILIARYGRID_H_ */

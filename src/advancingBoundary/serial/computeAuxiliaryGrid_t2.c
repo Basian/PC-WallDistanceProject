@@ -7,9 +7,9 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "computeAuxiliaryGrid.h"
+#include "computeAuxiliaryGrid_t2.h"
 
-void computeAuxiliaryGrid(double xmin, double xmax, double ymin, double ymax, int resI, int resJ, struct cell * auxCells){
+void computeAuxiliaryGrid_t2(double xmin, double xmax, double ymin, double ymax, int resI, int resJ, struct cell_t2 * auxCells){
 
 	int i;
 	int j;
@@ -43,6 +43,7 @@ void computeAuxiliaryGrid(double xmin, double xmax, double ymin, double ymax, in
 			auxCells[index].ymax = yaux[j+1];
 			auxCells[index].xcenter = (auxCells[index].xmax + auxCells[index].xmin)/2.0;
 			auxCells[index].ycenter = (auxCells[index].ymax + auxCells[index].ymin)/2.0;
+			auxCells[index].faceNum = 0;
 		}
 	}
 
