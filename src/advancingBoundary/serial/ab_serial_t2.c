@@ -13,7 +13,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <time.h>
+#include <sys/resource.h>
+#include <sys/times.h>
 
 void ab_serial_t2(double * xc, double * yc, double * xf, double * yf, int size_c, int size_f, double * wallDist){
 
@@ -31,8 +32,8 @@ void ab_serial_t2(double * xc, double * yc, double * xf, double * yf, int size_c
 
 
 	// Create auxiliary grid
-	int resI=50;
-	int resJ=50;
+	int resI=20;
+	int resJ=20;
 	double auxDiag = sqrt( pow((xmax-xmin)/(double)(resI-1),2) + pow((ymax-ymin)/(double)(resJ-1),2));
 	int numAuxCells = (resI-1)*(resJ-1);
 	int i, j, k, numFaces, cellsWithFaces;
@@ -59,6 +60,14 @@ void ab_serial_t2(double * xc, double * yc, double * xf, double * yf, int size_c
 	struct cell_t2 * compAuxCells;
 	compAuxCells = (struct cell_t2 *)malloc(cellsWithFaces*sizeof(struct cell_t2));
 
+	// Initialize face arrays
+	for (i=0; i<numAuxCells; i++){
+		auxCells[i].storage = 2;
+		auxCells[i].xface = (double *)malloc(2*sizeof(double));
+		auxCells[i].yface = (double *)malloc(2*sizeof(double));
+	}
+
+
 	compactAuxiliaryGrid_t2(auxCells,numAuxCells,compAuxCells,xf,yf,size_f);
 
 //	writecell(compAuxCells,cellsWithFaces,1);
@@ -67,7 +76,9 @@ void ab_serial_t2(double * xc, double * yc, double * xf, double * yf, int size_c
 	////////////////////////////////////////////////////////////////////
 	//	Wall Distance Calc
 	////////////////////////////////////////////////////////////////////
-	clock_t start = clock(), diff;
+	struct rusage tm_start;
+	struct rusage tm_end;
+	getrusage( RUSAGE_SELF, &tm_start );
 
 
 	/*
@@ -101,6 +112,10 @@ void ab_serial_t2(double * xc, double * yc, double * xf, double * yf, int size_c
 		}
 
 		// Loop through compacted auxCell array to see if any lie within rc
+		int iterationsA, iterationsB;
+		iterationsA=0;
+		iterationsB=0;
+
 		int includesAuxCells = 0;
 		while(includesAuxCells == 0){
 			for (j=0; j<cellsWithFaces; j++){
@@ -108,22 +123,24 @@ void ab_serial_t2(double * xc, double * yc, double * xf, double * yf, int size_c
 				rAux = sqrt( pow(xc[i]-compAuxCells[j].xcenter,2) + pow(yc[i]-compAuxCells[j].ycenter,2) );
 				// Increase rc to be sure enough geometry is included
 				if(rAux < rc){
-					rc += auxDiag;
+					rc += auxDiag*0.5;
 					includesAuxCells=1;
 					break;
 				}
 				else{
 					rc += auxDiag;
 				}
+//				iterationsA++;
 
 			}
+//			iterationsB++;
 		}
+//		printf("Iterations (A/B): %i, %i\n",iterationsA,iterationsB);
 
 		/*
 		 *  Loop through compacted auxCell array. For those that lie within rc,
 		 *  traverse through faces, compute wallDist and check for minimum
 		 */
-		struct face * traverse;
 		for (j=0; j<cellsWithFaces; j++){
 
 			rAux = sqrt( pow(xc[i]-compAuxCells[j].xcenter,2) + pow(yc[i]-compAuxCells[j].ycenter,2));
@@ -148,9 +165,15 @@ void ab_serial_t2(double * xc, double * yc, double * xf, double * yf, int size_c
 	}
 
 
-	diff = clock() - start;
-	int msec = diff * 1000 / CLOCKS_PER_SEC;
-	printf("Serial advancing boundary T2 algorithm completed in: %d milliseconds\n", msec%1000);
+	getrusage( RUSAGE_SELF, &tm_end );
+
+	double end = (double)tm_end.ru_utime.tv_sec + (double)tm_end.ru_utime.tv_usec / 1000000.0;
+	double start = (double)tm_start.ru_utime.tv_sec + (double)tm_start.ru_utime.tv_usec / 1000000.0;
+
+	double diff = end-start;
+	printf("Advancing boundary - serial T2: \t %.0f milliseconds\n", diff*1000);
+
+
 	////////////////////////////////////////////////////////////////////
 	//
 	////////////////////////////////////////////////////////////////////

@@ -16,9 +16,11 @@ struct cell_t2{
 	double xcenter, ycenter;
 
 	// Included faces linked list
-	int	faceNum;//=0;
-	double xface[20];
-	double yface[20];
+	int	faceNum;
+
+	int storage;
+	double * xface;
+	double * yface;
 
 };
 
