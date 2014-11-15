@@ -1,0 +1,13 @@
+#PBS -l walltime=00:01:00
+#PBS -l nodes=1:ppn=12:gpus=1
+
+#PBS -N walldist
+#BPS -j oe
+
+set -x
+
+cd $PBS_O_WORKDIR
+./walldistcalc
+
+
+

@@ -17,6 +17,9 @@ extern "C" {
 #include "advancingBoundary/serial/ab_serial_t2.h"
 }
 
+#include "advancingBoundary/serial/cudaTest.h"
+
+
 #include "postproc/postproc.h"
 #include "bruteforce/bruteforce.h"
 
@@ -55,7 +58,6 @@ int main(){
 		wallDistBF[i] = 1e9;
 	}
 
-	std::cout<< "CPU Time:" << std::endl;
 	//////////////////////////////////////////////////
 	//////////////////////////////////////////////////
 
@@ -82,6 +84,8 @@ int main(){
 
 	///////////////////////////////////////////////////
 	///////////////////////////////////////////////////
+	cudaTest();
+
 
 	return 0;
 }
