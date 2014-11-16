@@ -8,15 +8,8 @@
 #include <math.h>
 #include <stdio.h>
 #include "bruteforce.h"
-#include <sys/resource.h>
-#include <sys/times.h>
-
 
 void SerialBF(int csize, int fsize, double * xc, double * yc, double * xf, double * yf, double * wallDist){
-	struct rusage tm_start;
-	struct rusage tm_end;
-	getrusage( RUSAGE_SELF, &tm_start );
-
 
 	// Array of distances from each face to a cell center
 	double fdistance[fsize];
@@ -45,16 +38,7 @@ void SerialBF(int csize, int fsize, double * xc, double * yc, double * xf, doubl
 	}
 	
 
-	getrusage( RUSAGE_SELF, &tm_end );
-
-	double end = (double)tm_end.ru_utime.tv_sec + (double)tm_end.ru_utime.tv_usec / 1000000.0;
-	double start = (double)tm_start.ru_utime.tv_sec + (double)tm_start.ru_utime.tv_usec / 1000000.0;
-
-	double diff = end-start;
-	printf("Brute force - serial: \t \t \t %.0f milliseconds\n", diff*1000);
-
-
-	// DEBUGGING CODE
+/* 	// DEBUGGING CODE
 	FILE * fp;
 	fp = fopen ("BFSerialoutput.txt", "wb\r\n");
 	fprintf(fp, "Cell center (x), Cell center (y), Wall Distance \n", xc, yc, wallDist);
@@ -68,5 +52,5 @@ void SerialBF(int csize, int fsize, double * xc, double * yc, double * xf, doubl
 		fprintf(fp, "%lf, %lf\n", xf[i], yf[i]);
 	}  
 	fclose(fp);
-
+ */
 }

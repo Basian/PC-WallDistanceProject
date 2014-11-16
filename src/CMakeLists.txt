@@ -8,7 +8,7 @@ if (CUDA_FOUND)
 	include_directories(${CUDA_INCLUDE_DIRS})
 endif (CUDA_FOUND)
 
-
+set(CUDA_NVCC_FLAGS "-arch;compute_13" )
 #PROJECT(walldistancecalc Fortran CXX C CUDA)
 
 
@@ -28,7 +28,7 @@ ADD_SUBDIRECTORY(bruteforce)
 #ADD_EXECUTABLE( walldistcalc main.cxx )
 CUDA_ADD_EXECUTABLE( walldistcalc main.cxx )
 TARGET_LINK_LIBRARIES( walldistcalc BruteForce Preproc Radius
-advancingBoundary Postproc cudaTest ${CUDA_LIBRAIRES})
+advancingBoundary Postproc cudaTest cudaBruteForce ${CUDA_LIBRAIRES})
 
 # Install executable
 INSTALL(TARGETS walldistcalc RUNTIME DESTINATION $(CMAKE_BINARY_DIR)/bin)
