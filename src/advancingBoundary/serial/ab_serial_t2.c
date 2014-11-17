@@ -171,7 +171,7 @@ void ab_serial_t2(double * xc, double * yc, double * xf, double * yf, int size_c
 	double start = (double)tm_start.ru_utime.tv_sec + (double)tm_start.ru_utime.tv_usec / 1000000.0;
 
 	double diff = end-start;
-	printf("Advancing boundary - serial T2: \t %.0f milliseconds\n", diff*1000);
+	printf("Advancing boundary - serial T2: \t \t %.0f milliseconds\n", diff*1000);
 
 
 	////////////////////////////////////////////////////////////////////

@@ -14,7 +14,6 @@ void deviceFunction(int * d_array){
 
 
 
-
 void cudaTest(){
 
 	int i;

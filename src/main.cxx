@@ -18,6 +18,10 @@ extern "C" {
 #include "advancingBoundary/serial/ab_serial_t2.h"
 }
 
+//extern "C" {
+#include "advancingBoundary/parallel/ab_pt1.h"
+//}
+
 #include "advancingBoundary/serial/cudaTest.h"
 
 
@@ -91,9 +95,13 @@ int main(){
 	double * wallDistAB_t2;
 	wallDistAB_t2 = new double[size_c];
 
+	double * wallDistAB_pt1;
+	wallDistAB_pt1 = new double[size_c];
+
 	for(int i=0; i<size_c; i++){
 		wallDistAB[i] = 1e9;
 		wallDistAB_t2[i] = 1e9;
+		wallDistAB_pt1[i] = 1e9;
 		wallDistBFSerial[i] = 1e9;
 		wallDistBFParallel1[i] = 1e9;
 		wallDistBFParallel2[i] = 1e9;
@@ -143,10 +151,20 @@ int main(){
 	// WRITE TO FILE
 	postproc(ni,nj,wallDistAB_t2,2);
 
-	///////////////////////////////////////////////////
-	///////////////////////////////////////////////////
-	cudaTest();
 
+	// ABparallel_t1
+	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
+	ab_parallel_t1(xc,yc,xf,yf,size_c,size_f,wallDistAB_pt1);
+	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
+
+	postproc(ni,nj,wallDistAB_pt1,3);
+	time_in_msec = gettime_msec( &tm_start, &tm_end ); 			// Get elapsed time
+
+
+	printf("Advancing boundary - parallel T1(main): \t %.0f milliseconds\n", time_in_msec);
+
+	///////////////////////////////////////////////////
+	///////////////////////////////////////////////////
 
 	return 0;
 }

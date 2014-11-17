@@ -158,7 +158,7 @@ void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, i
 	double start = (double)tm_start.ru_utime.tv_sec + (double)tm_start.ru_utime.tv_usec / 1000000.0;
 
 	double diff = end-start;
-	printf("Advancing boundary - serial: \t \t %.0f milliseconds\n", diff*1000);
+	printf("Advancing boundary - serial: \t \t \t %.0f milliseconds\n", diff*1000);
 
 	////////////////////////////////////////////////////////////////////
 	//
