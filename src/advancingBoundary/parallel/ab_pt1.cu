@@ -31,6 +31,7 @@ extern "C" {
 __global__
 void wd_ab_parallel_t1(double *xc, double *yc, double *xf, double *yf, double *xbox, double *ybox, struct cell_pt1 *compAuxCells, int size_c, int size_f, int numAuxCells, double auxDiag, double *wallDist){
 
+
 	int myId, includesAuxCells, j, index;
 	double r, rtemp, rAux;
 
@@ -109,6 +110,104 @@ void wd_ab_parallel_t1(double *xc, double *yc, double *xf, double *yf, double *x
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+__global__
+void wd_ab_parallel_t2(double *cellCenters, double *xf, double *yf, double *xbox, double *ybox, struct cell_pt1 *compAuxCells, int size_c, int size_f, int numAuxCells, double auxDiag, double *wallDist){
+
+	extern __shared__ double s_cellCenters[];
+
+
+	int myId, tid, includesAuxCells, j, index;
+	double r, rtemp, rAux;
+
+	tid = threadIdx.x;
+	myId = threadIdx.x + blockDim.x * blockIdx.x;
+
+
+	// Pull cell centers into shared memory
+	s_cellCenters[2*tid] = cellCenters[2*myId];
+	s_cellCenters[2*tid+1] = cellCenters[2*myId+1];
+
+
+
+	// Keep array access bounded
+	if (myId >= size_c){
+		return;
+	}
+
+	// Compute initial radius
+	r=1e9;
+	for (j=0; j<8; j++){
+		rtemp = sqrt( pow((s_cellCenters[2*tid]-xbox[j]),2) + pow((s_cellCenters[2*tid+1]-ybox[j]),2) );
+		if (rtemp<r){
+			r=rtemp;
+		}
+	}
+
+
+
+	// Loop through compacted auxCell array to see if any lie within rc
+	includesAuxCells = 0;
+	while(includesAuxCells == 0){
+		for (j=0; j<numAuxCells; j++){
+
+			rAux = sqrt( pow(s_cellCenters[2*tid]-compAuxCells[j].xcenter,2) + pow(s_cellCenters[2*tid+1]-compAuxCells[j].ycenter,2) );
+			// Increase r to be sure enough geometry is included
+			if(rAux < r){
+				r += auxDiag*0.5;
+				includesAuxCells=1;
+				break;
+			}
+			else{
+				r += auxDiag;
+			}
+//			if(myId==0){
+//				printf("rAux, r: %f, %f\n",rAux,r);
+//			}
+		}
+
+	}
+
+
+	/*
+	 *  Loop through compacted auxCell array. For those that lie within r,
+	 *  traverse through faces, compute wallDist and check for minimum
+	 */
+	for (j=0; j<numAuxCells; j++){
+
+		rAux = sqrt( pow(s_cellCenters[2*tid]-compAuxCells[j].xcenter,2) + pow(s_cellCenters[2*tid+1]-compAuxCells[j].ycenter,2));
+
+		// Check if auxCell is within radius of interest
+		if(rAux < r){
+			index = 0;
+
+			// Loop through faces and compute distance from grid cell center
+			while(index < compAuxCells[j].numFaces){
+				rtemp = sqrt( pow(s_cellCenters[2*tid]-xf[compAuxCells[j].faceIndex[index]],2) + pow(s_cellCenters[2*tid+1]-yf[compAuxCells[j].faceIndex[index]],2));
+
+				// If dist is smaller than current wallDist, replace
+				if(rtemp<wallDist[myId]){
+					wallDist[myId]=rtemp;
+				}
+
+				index++;
+			}
+		}
+
+	}
+
+
+
+
+
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -162,8 +261,9 @@ void ab_parallel_t1(double * xc, double * yc, double * xf, double * yf, int size
 	compAuxCells = new cell_pt1[cellsWithFaces];
 
 
+	///////
 	compactAuxiliaryGrid_pt1(auxCells,numAuxCells,compAuxCells,xf,yf,size_f);
-
+	///////
 	
 	
 
@@ -174,6 +274,21 @@ void ab_parallel_t1(double * xc, double * yc, double * xf, double * yf, int size
 
 	double xBoxPts[8] = {xmin, xmid, xmax, xmax, xmax, xmid, xmin, xmin};
 	double yBoxPts[8] = {ymin, ymin, ymin, ymid, ymax, ymax, ymax, ymid};
+
+
+
+	////////////////////////////////////////////////////////////////////////////////
+	//	Combine xc,yc arrays for coallesced memory access in parallel t2 version
+	////////////////////////////////////////////////////////////////////////////////
+
+	double * cellCenters;
+	cellCenters = new double[2*size_c];
+
+	for (i=0; i<size_c; i++){
+		cellCenters[2*i] = xc[i];
+		cellCenters[2*i+1] = yc[i];
+	}
+
 
 
 	////////////////////////////////////////////////////////////////////
@@ -188,17 +303,18 @@ void ab_parallel_t1(double * xc, double * yc, double * xf, double * yf, int size
 	checkCudaErrors(cudaMemcpy(d_ybox,yBoxPts,8*sizeof(double),cudaMemcpyHostToDevice));
 
 	// grid and faces
-	double *d_xc, *d_yc, *d_xf, *d_yf;
+	double *d_xc, *d_yc, *d_xf, *d_yf, *d_cellCenters;
 	checkCudaErrors(cudaMalloc(&d_xc,size_c*sizeof(double)));
 	checkCudaErrors(cudaMalloc(&d_yc,size_c*sizeof(double)));
 	checkCudaErrors(cudaMalloc(&d_xf,size_c*sizeof(double)));
 	checkCudaErrors(cudaMalloc(&d_yf,size_c*sizeof(double)));
+	checkCudaErrors(cudaMalloc(&d_cellCenters,2*size_c*sizeof(double)));
 
 	checkCudaErrors(cudaMemcpy(d_xc,xc,size_c*sizeof(double),cudaMemcpyHostToDevice));
 	checkCudaErrors(cudaMemcpy(d_yc,yc,size_c*sizeof(double),cudaMemcpyHostToDevice));
 	checkCudaErrors(cudaMemcpy(d_xf,xf,size_c*sizeof(double),cudaMemcpyHostToDevice));
 	checkCudaErrors(cudaMemcpy(d_yf,yf,size_c*sizeof(double),cudaMemcpyHostToDevice));
-
+	checkCudaErrors(cudaMemcpy(d_cellCenters,cellCenters,2*size_c*sizeof(double),cudaMemcpyHostToDevice));
 
 	// auxCell structs
 	struct cell_pt1 * d_compAuxCells;
@@ -227,6 +343,16 @@ void ab_parallel_t1(double * xc, double * yc, double * xf, double * yf, int size
 	wd_ab_parallel_t1<<<numBlocks,threadsPerBlock>>>(d_xc,d_yc,d_xf,d_yf,d_xbox,d_ybox,d_compAuxCells,size_c,size_f,cellsWithFaces,auxDiag,d_wallDist);
 	timer.Stop();
 	printf("Advancing boundary - parallel T1(GpuTimer): \t %.0f milliseconds\n",timer.Elapsed());
+
+	// Reset wallDistance
+	checkCudaErrors(cudaMemcpy(d_wallDist,wallDist,size_c*sizeof(double),cudaMemcpyHostToDevice));
+
+
+
+	timer.Start();
+	wd_ab_parallel_t2<<<numBlocks,threadsPerBlock,2*threadsPerBlock*sizeof(double)>>>(d_cellCenters,d_xf,d_yf,d_xbox,d_ybox,d_compAuxCells,size_c,size_f,cellsWithFaces,auxDiag,d_wallDist);
+	timer.Stop();
+	printf("Advancing boundary - parallel T2(GpuTimer): \t %.0f milliseconds\n",timer.Elapsed());
 
 
 
