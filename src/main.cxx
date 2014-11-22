@@ -28,20 +28,7 @@ extern "C" {
 #include "postproc/postproc.h"
 #include "bruteforce/bruteforce.h"
 #include "bruteforce/bruteforce_parallel.h"
-#include <sys/resource.h>
-#include <sys/times.h>
 
-// Utility function for computing elapsed time
-double gettime_msec(struct rusage *tm_start, struct rusage *tm_end)
-{
-	double end = (double)tm_end->ru_utime.tv_sec + (double)tm_end->ru_utime.tv_usec / 1000000.0;
-	double start = (double)tm_start->ru_utime.tv_sec + (double)tm_start->ru_utime.tv_usec / 1000000.0;
-
-	double diff = end-start;
-	
-	return diff*1000; // return time in msec
-
-}
 
 // Utility function for comparing matrices
 int compare_matrices(double *out, double *gold, const int N)
@@ -65,11 +52,6 @@ int main(){
 	double * xf;
 	double * yf;
 
-	// define timer variables for calculating time
-	struct rusage tm_start;
-	struct rusage tm_end;
-	double time_in_msec;
-
 	/////////////////////////////////////////////////
 	/////////////////////////////////////////////////
 
@@ -83,23 +65,23 @@ int main(){
 	double * wallDistBFSerial;
 	wallDistBFSerial = new double[size_c];
 
-	double * wallDistBFParallel1;
-	wallDistBFParallel1 = new double[size_c];	
+	double * wallDistBFParallel1a;
+	wallDistBFParallel1a = new double[size_c];	
 
-	double * wallDistBFParallel2;
-	wallDistBFParallel2 = new double[size_c];	
+	double * wallDistBFParallel1b;
+	wallDistBFParallel1b = new double[size_c];	
 
-	double * wallDistBFParallel3;
-	wallDistBFParallel3 = new double[size_c];	
+	double * wallDistBFParallel1c;
+	wallDistBFParallel1c = new double[size_c];	
 
-	double * wallDistBFParallel4;
-	wallDistBFParallel4 = new double[size_c];	
+	double * wallDistBFParallel2a;
+	wallDistBFParallel2a = new double[size_c];	
 
-	double * wallDistBFParallel5;
-	wallDistBFParallel5 = new double[size_c];	
+	double * wallDistBFParallel2b;
+	wallDistBFParallel2b = new double[size_c];	
 
-	double * wallDistBFParallel6;
-	wallDistBFParallel6 = new double[size_c];	
+	double * wallDistBFParallel2c;
+	wallDistBFParallel2c = new double[size_c];	
 
 	double * wallDistAB;
 	wallDistAB = new double[size_c];
@@ -115,12 +97,12 @@ int main(){
 		wallDistAB_t2[i] = 1e9;
 		wallDistAB_pt1[i] = 1e9;
 		wallDistBFSerial[i] = 1e9;
-		wallDistBFParallel1[i] = 1e9;
-		wallDistBFParallel2[i] = 1e9;
-		wallDistBFParallel3[i] = 1e9;
-		wallDistBFParallel4[i] = 1e9;
-		wallDistBFParallel5[i] = 1e9;
-		wallDistBFParallel6[i] = 1e9;
+		wallDistBFParallel1a[i] = 1e9;
+		wallDistBFParallel1b[i] = 1e9;
+		wallDistBFParallel1c[i] = 1e9;
+		wallDistBFParallel2a[i] = 1e9;
+		wallDistBFParallel2b[i] = 1e9;
+		wallDistBFParallel2c[i] = 1e9;
 	}
 
 	//////////////////////////////////////////////////
@@ -130,65 +112,35 @@ int main(){
 	SerialBF(size_c,size_f,xc,yc,xf,yf,wallDistBFSerial);
 	postproc(ni,nj,wallDistBFSerial,0);							// WRITE TO FILE
 	
-	// BRUTEFORCE PARALLEL 1 WALLDISTANCE CALCULATION
-	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
-	ParallelBF1(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel1);		
-	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
-	time_in_msec = gettime_msec( &tm_start, &tm_end ); 			// Get elapsed time
+	// BRUTEFORCE PARALLEL 1a WALLDISTANCE CALCULATION
+	ParallelBF1a(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel1a);		
+	printf("\tVerifying 1a ... %s\n",
+	   compare_matrices(wallDistBFParallel1a, wallDistBFSerial, size_c) ? "Failed" : "Success");
 
-	printf("Brute force - parallel 1 block per cell (main): \t %.0f milliseconds\n", time_in_msec);
-	printf("\tVerifying brute force - parallel 1 output result ...%s\n",
-	   compare_matrices(wallDistBFParallel1, wallDistBFSerial, size_c) ? "Failed" : "Success");
-
-   	// BRUTEFORCE PARALLEL 2 WALLDISTANCE CALCULATION
-	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
-	ParallelBF2(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel2);		
-	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
-	time_in_msec = gettime_msec( &tm_start, &tm_end ); 			// Get elapsed time
-
-	printf("Brute force - parallel 2 block per cell shared mem (main): \t %.0f milliseconds\n", time_in_msec);
-	printf("\tVerifying brute force - parallel 2 output result ...%s\n",
-	   compare_matrices(wallDistBFParallel2, wallDistBFSerial, size_c) ? "Failed" : "Success");
+   	// BRUTEFORCE PARALLEL 1b WALLDISTANCE CALCULATION
+	ParallelBF1b(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel1b);		
+	printf("\tVerifying 1b ... %s\n",
+	   compare_matrices(wallDistBFParallel1b, wallDistBFSerial, size_c) ? "Failed" : "Success");
 		   	
-	// BRUTEFORCE PARALLEL 3 WALLDISTANCE CALCULATION
-	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
-	ParallelBF3(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel3);		
-	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
-	time_in_msec = gettime_msec( &tm_start, &tm_end ); 			// Get elapsed time
+	// BRUTEFORCE PARALLEL 1c WALLDISTANCE CALCULATION
+	ParallelBF1c(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel1c);		
+	printf("\tVerifying 1c ... %s\n",
+	   compare_matrices(wallDistBFParallel1c, wallDistBFSerial, size_c) ? "Failed" : "Success");
 
-	printf("Brute force - parallel 3 block per cell coalesced (main): \t %.0f milliseconds\n", time_in_msec);
-	printf("\tVerifying brute force - parallel 3 output result ...%s\n",
-	   compare_matrices(wallDistBFParallel3, wallDistBFSerial, size_c) ? "Failed" : "Success");
+   	// BRUTEFORCE PARALLEL 2a WALLDISTANCE CALCULATION
+	ParallelBF2a(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel2a);		
+	printf("\tVerifying 2a ... %s\n",
+	   compare_matrices(wallDistBFParallel2a, wallDistBFSerial, size_c) ? "Failed" : "Success");
 
-   	// BRUTEFORCE PARALLEL 4 WALLDISTANCE CALCULATION
-	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
-	ParallelBF4(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel4);		
-	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
-	time_in_msec = gettime_msec( &tm_start, &tm_end ); 			// Get elapsed time
-
-	printf("Brute force - parallel 4 thread per cell (main): \t %.0f milliseconds\n", time_in_msec);
-	printf("\tVerifying brute force - parallel 4 output result ...%s\n",
-	   compare_matrices(wallDistBFParallel4, wallDistBFSerial, size_c) ? "Failed" : "Success");
-
-   	// BRUTEFORCE PARALLEL 5 WALLDISTANCE CALCULATION
-	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
-	ParallelBF5(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel5);		
-	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
-	time_in_msec = gettime_msec( &tm_start, &tm_end ); 			// Get elapsed time
-
-	printf("Brute force - parallel 5 thread per cell shared mem (main): \t %.0f milliseconds\n", time_in_msec);
-	printf("\tVerifying brute force - parallel 5 output result ...%s\n",
-	   compare_matrices(wallDistBFParallel5, wallDistBFSerial, size_c) ? "Failed" : "Success");
+   	// BRUTEFORCE PARALLEL 2b WALLDISTANCE CALCULATION
+	ParallelBF2b(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel2b);		
+	printf("\tVerifying 2b ... %s\n",
+	   compare_matrices(wallDistBFParallel2b, wallDistBFSerial, size_c) ? "Failed" : "Success");
 	   	
-	// BRUTEFORCE PARALLEL 6 WALLDISTANCE CALCULATION
-	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
-	ParallelBF6(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel6);		
-	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
-	time_in_msec = gettime_msec( &tm_start, &tm_end ); 			// Get elapsed time
-
-	printf("Brute force - parallel 6 thread per cell coalesced (main): \t %.0f milliseconds\n", time_in_msec);
-	printf("\tVerifying brute force - parallel 6 output result ...%s\n",
-	   compare_matrices(wallDistBFParallel6, wallDistBFSerial, size_c) ? "Failed" : "Success");
+	// BRUTEFORCE PARALLEL 2c WALLDISTANCE CALCULATION
+	ParallelBF2c(size_c,size_f,xc,yc,xf,yf,wallDistBFParallel2c);		
+	printf("\tVerifying 2c ... %s\n",
+	   compare_matrices(wallDistBFParallel2c, wallDistBFSerial, size_c) ? "Failed" : "Success");
 
 	///////////////////////////////////////////////////
 	///////////////////////////////////////////////////

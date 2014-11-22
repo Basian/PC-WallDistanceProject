@@ -52,7 +52,7 @@ void SerialBF(int csize, int fsize, double * xc, double * yc, double * xf, doubl
 	double start = (double)tm_start.ru_utime.tv_sec + (double)tm_start.ru_utime.tv_usec / 1000000.0;
 
 	double diff = end-start;
-	printf("Brute force - serial: \t \t \t %.0f milliseconds\n", diff*1000);
+	printf("Brute force - serial: \t \t %.0f milliseconds\n", diff*1000);
 
 /* 	// DEBUGGING CODE
 	FILE * fp;
