@@ -19,7 +19,7 @@ struct cell_pt1{
 	int	numFaces;
 
 	int storage;
-	int faceIndex[20];
+	int faceIndex[100];
 
 };
 

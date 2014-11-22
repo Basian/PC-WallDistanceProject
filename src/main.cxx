@@ -206,15 +206,8 @@ int main(){
 
 
 	// ABparallel_t1
-	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
 	ab_parallel_t1(xc,yc,xf,yf,size_c,size_f,wallDistAB_pt1);
-	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
-
 	postproc(ni,nj,wallDistAB_pt1,3);
-	time_in_msec = gettime_msec( &tm_start, &tm_end ); 			// Get elapsed time
-
-
-	printf("Advancing boundary - parallel T1(main): \t %.0f milliseconds\n", time_in_msec);
 
 	///////////////////////////////////////////////////
 	///////////////////////////////////////////////////
