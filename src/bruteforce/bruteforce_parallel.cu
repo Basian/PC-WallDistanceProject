@@ -14,8 +14,24 @@
 #include <sys/resource.h>
 #include <sys/times.h>
 #include "timer.h"
+#include <sys/resource.h>
+#include <sys/times.h>
 
-#define MAXTHREADSPERBLOCK 1024
+#define MAXTHREADSPERBLOCK 512   // This will be used for the thread per cell algorithms
+#define MAXTHREADSPERBLOCK1 1024 // Not good to use, but may be used for the block per cell algorithms just to benchmark performance
+
+
+// Utility function for computing elapsed time
+double gettime_msec1(struct rusage *tm_start, struct rusage *tm_end)
+{
+	double end = (double)tm_end->ru_utime.tv_sec + (double)tm_end->ru_utime.tv_usec / 1000000.0;
+	double start = (double)tm_start->ru_utime.tv_sec + (double)tm_start->ru_utime.tv_usec / 1000000.0;
+
+	double diff = end-start;
+	
+	return diff*1000; // return time in msec
+
+}
 
 // Kernel for ParallelBF1: calculates the wall distances for each cell in a block
 __global__ void block_per_cell(double * dout, int fsize, double * xc, double * yc, double * xf, double * yf)
@@ -63,13 +79,16 @@ void ParallelBF1(int csize, int fsize, double * xc, double * yc, double * xf, do
 {
 	// 	For timing calculations
 	GpuTimer timer;
+	struct rusage tm_start;
+	struct rusage tm_end;
+	double time_in_msec;
 
 	// determine the number of threads and blocks
     int threads, blocks;
 	
-	if (fsize <= MAXTHREADSPERBLOCK)
+	if (fsize <= MAXTHREADSPERBLOCK1)
 	{
-	    threads = MAXTHREADSPERBLOCK;
+	    threads = MAXTHREADSPERBLOCK1;
 		blocks = csize;
 		while ( (threads/2) >= fsize )
 		{
@@ -79,7 +98,7 @@ void ParallelBF1(int csize, int fsize, double * xc, double * yc, double * xf, do
 	else
 	{
 		// This is currently not supported; in the future, this can be implemented by using a block dimension
-		printf("Block per cell method cannot be executed when there are more than %d solid faces",MAXTHREADSPERBLOCK);
+		printf("Block per cell method cannot be executed when there are more than %d solid faces\n",MAXTHREADSPERBLOCK1);
 		return;
 	}
 
@@ -100,11 +119,15 @@ void ParallelBF1(int csize, int fsize, double * xc, double * yc, double * xf, do
     checkCudaErrors(cudaMemcpy(d_xf, xf, fsize*sizeof(double), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_yf, yf, fsize*sizeof(double), cudaMemcpyHostToDevice));
 
+	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
 	timer.Start(); // Start timer
     // Launch block per cell kernel to get the wall distance for each cell, where each cell is a block
     block_per_cell<<<blocks, threads, threads * sizeof(double)>>>(d_wallDist, fsize, d_xc, d_yc, d_xf, d_yf);	
 	timer.Stop(); // Stop timer
 	printf("Brute force - parallel 1 block per cell (GpuTimer): \t %.0f milliseconds\n",timer.Elapsed());
+	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
+	time_in_msec = gettime_msec1( &tm_start, &tm_end ); 			// Get elapsed time
+	printf("Brute force - parallel 1 block per cell (getTimer): \t %.0f milliseconds\n", time_in_msec);
 
     // Copy result from device back to host
     checkCudaErrors(cudaMemcpy(wallDist, d_wallDist, blocks*sizeof(double), cudaMemcpyDeviceToHost));
@@ -171,13 +194,16 @@ void ParallelBF2(int csize, int fsize, double * xc, double * yc, double * xf, do
 {
 	// 	For timing calculations
 	GpuTimer timer;
+	struct rusage tm_start;
+	struct rusage tm_end;
+	double time_in_msec;
 
 	// determine the number of threads and blocks
     int threads, blocks;
 	
-	if (fsize <= MAXTHREADSPERBLOCK)
+	if (fsize <= MAXTHREADSPERBLOCK1)
 	{
-	    threads = MAXTHREADSPERBLOCK;
+	    threads = MAXTHREADSPERBLOCK1;
 		blocks = csize;
 		while ( (threads/2) >= fsize )
 		{
@@ -187,7 +213,7 @@ void ParallelBF2(int csize, int fsize, double * xc, double * yc, double * xf, do
 	else
 	{
 		// This is currently not supported; in the future, this can be implemented by using a block dimension
-		printf("Block per cell method cannot be executed when there are more than %d solid faces",MAXTHREADSPERBLOCK);
+		printf("Block per cell method cannot be executed when there are more than %d solid faces\n",MAXTHREADSPERBLOCK1);
 		return;
 	}
 	
@@ -208,11 +234,15 @@ void ParallelBF2(int csize, int fsize, double * xc, double * yc, double * xf, do
     checkCudaErrors(cudaMemcpy(d_xf, xf, fsize*sizeof(double), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_yf, yf, fsize*sizeof(double), cudaMemcpyHostToDevice));
 
+	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
 	timer.Start(); // Start timer
     // Launch block per cell kernel to get the wall distance for each cell, where each cell is a block
     block_per_cell_shmem<<<blocks, threads, 3 * threads * sizeof(double)>>>(d_wallDist, fsize, d_xc, d_yc, d_xf, d_yf);	
 	timer.Stop(); // Stop timer
 	printf("Brute force - parallel 2 block per cell shared mem (GpuTimer): \t %.0f milliseconds\n",timer.Elapsed());
+	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
+	time_in_msec = gettime_msec1( &tm_start, &tm_end ); 			// Get elapsed time
+	printf("Brute force - parallel 2 block per cell shared mem (getTimer): \t %.0f milliseconds\n", time_in_msec);
 
     // Copy result from device back to host
     checkCudaErrors(cudaMemcpy(wallDist, d_wallDist, blocks*sizeof(double), cudaMemcpyDeviceToHost));
@@ -278,13 +308,16 @@ void ParallelBF3(int csize, int fsize, double * xc, double * yc, double * xf, do
 {
 	// 	For timing calculations
 	GpuTimer timer;
+	struct rusage tm_start;
+	struct rusage tm_end;
+	double time_in_msec;
 
 	// determine the number of threads and blocks
     int threads, blocks;
 	
-	if (fsize <= MAXTHREADSPERBLOCK)
+	if (fsize <= MAXTHREADSPERBLOCK1)
 	{
-	    threads = MAXTHREADSPERBLOCK;
+	    threads = MAXTHREADSPERBLOCK1;
 		blocks = csize;
 		while ( (threads/2) >= fsize )
 		{
@@ -294,7 +327,7 @@ void ParallelBF3(int csize, int fsize, double * xc, double * yc, double * xf, do
 	else
 	{
 		// This is currently not supported; in the future, this can be implemented by using a block dimension
-		printf("Block per cell method cannot be executed when there are more than %d solid faces",MAXTHREADSPERBLOCK);
+		printf("Block per cell method cannot be executed when there are more than %d solid faces\n",MAXTHREADSPERBLOCK1);
 		return;
 	}
 	
@@ -315,11 +348,15 @@ void ParallelBF3(int csize, int fsize, double * xc, double * yc, double * xf, do
     checkCudaErrors(cudaMemcpy(d_xf, xf, fsize*sizeof(double), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_yf, yf, fsize*sizeof(double), cudaMemcpyHostToDevice));
 
+	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
 	timer.Start(); // Start timer
     // Launch block per cell kernel to get the wall distance for each cell, where each cell is a block
     block_per_cell_shmem_c<<<blocks, threads, 3 * threads * sizeof(double)>>>(d_wallDist, fsize, d_xc, d_yc, d_xf, d_yf);	
 	timer.Stop(); // Stop timer
 	printf("Brute force - parallel 3 block per cell coalesced (GpuTimer): \t %.0f milliseconds\n",timer.Elapsed());
+	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
+	time_in_msec = gettime_msec1( &tm_start, &tm_end ); 			// Get elapsed time
+	printf("Brute force - parallel 3 block per cell coalesced (getTimer): \t %.0f milliseconds\n", time_in_msec);
 
     // Copy result from device back to host
     checkCudaErrors(cudaMemcpy(wallDist, d_wallDist, blocks*sizeof(double), cudaMemcpyDeviceToHost));
@@ -363,6 +400,9 @@ void ParallelBF4(int csize, int fsize, double * xc, double * yc, double * xf, do
 {
 	// 	For timing calculations
 	GpuTimer timer;
+	struct rusage tm_start;
+	struct rusage tm_end;
+	double time_in_msec;
 
 	// determine the number of threads and blocks
     int threads, blocks;
@@ -388,11 +428,15 @@ void ParallelBF4(int csize, int fsize, double * xc, double * yc, double * xf, do
     checkCudaErrors(cudaMemcpy(d_xf, xf, fsize*sizeof(double), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_yf, yf, fsize*sizeof(double), cudaMemcpyHostToDevice));
 
+	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
 	timer.Start(); // Start timer
     // Launch thread per cell kernel to get the wall distance for each cell
     thread_per_cell<<<blocks, threads>>>(d_wallDist, fsize, d_xc, d_yc, d_xf, d_yf);	
 	timer.Stop(); // Stop timer
 	printf("Brute force - parallel 4 thread per cell (GpuTimer): \t %.0f milliseconds\n",timer.Elapsed());
+	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
+	time_in_msec = gettime_msec1( &tm_start, &tm_end ); 			// Get elapsed time
+	printf("Brute force - parallel 4 thread per cell (getTimer): \t %.0f milliseconds\n", time_in_msec);
 
     // Copy result from device back to host
     checkCudaErrors(cudaMemcpy(wallDist, d_wallDist, csize*sizeof(double), cudaMemcpyDeviceToHost));
@@ -427,16 +471,20 @@ __global__ void thread_per_cell_sh(double * dout, int fsize, double * xc, double
 {
 	// Thread and block IDs
 	int myid = threadIdx.x + blockDim.x * blockIdx.x;
-    int tid  = threadIdx.x;
 
 	// sxf, syf are allocated in the kernel call: 3rd arg to <<<b, t, shmem>>>
 	extern __shared__ double sdata[];
 	double *sxf = &sdata[0];			// x of faces
-	double *syf = &sdata[blockDim.x];	// y of faces
+	double *syf = &sdata[fsize];	// y of faces
 	
-    // Load shared mem from global mem
-    sxf[tid] = xf[tid];
-	syf[tid] = yf[tid];
+    // Load shared mem from global mem - do it for one thread only (not good as it causes thread divergence)
+	if (threadIdx.x == 0)
+	{
+		for (int j=0; j<fsize; j++){
+			sxf[j] = xf[j];
+			syf[j] = yf[j];
+		}
+	}
     __syncthreads();
 
 	double minfdistance = 1e9; // Initialize it to a large value;
@@ -462,6 +510,9 @@ void ParallelBF5(int csize, int fsize, double * xc, double * yc, double * xf, do
 {
 	// 	For timing calculations
 	GpuTimer timer;
+	struct rusage tm_start;
+	struct rusage tm_end;
+	double time_in_msec;
 
 	// determine the number of threads and blocks
     int threads, blocks;
@@ -487,11 +538,15 @@ void ParallelBF5(int csize, int fsize, double * xc, double * yc, double * xf, do
     checkCudaErrors(cudaMemcpy(d_xf, xf, fsize*sizeof(double), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_yf, yf, fsize*sizeof(double), cudaMemcpyHostToDevice));
 
+	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
 	timer.Start(); // Start timer
     // Launch thread per cell kernel to get the wall distance for each cell
-    thread_per_cell_sh<<<blocks, threads, 2 * threads * sizeof(double)>>>(d_wallDist, fsize, d_xc, d_yc, d_xf, d_yf);	
+    thread_per_cell_sh<<<blocks, threads, 2 * fsize * sizeof(double)>>>(d_wallDist, fsize, d_xc, d_yc, d_xf, d_yf);	
 	timer.Stop(); // Stop timer
 	printf("Brute force - parallel 5 thread per cell shared mem (GpuTimer): \t %.0f milliseconds\n",timer.Elapsed());
+	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
+	time_in_msec = gettime_msec1( &tm_start, &tm_end ); 			// Get elapsed time
+	printf("Brute force - parallel 5 thread per cell shared mem (getTimer): \t %.0f milliseconds\n", time_in_msec);
 
     // Copy result from device back to host
     checkCudaErrors(cudaMemcpy(wallDist, d_wallDist, csize*sizeof(double), cudaMemcpyDeviceToHost));
@@ -507,21 +562,11 @@ void ParallelBF5(int csize, int fsize, double * xc, double * yc, double * xf, do
 }
 
 
-// Kernel for ParallelBF6: calculates the wall distance for each cell in a thread (using coalesced shared memory)
-__global__ void thread_per_cell_sh_c(double * dout, int fsize, double * xc, double * yc, double * xf, double * yf)
+// Kernel for ParallelBF6: calculates the wall distance for each cell in a thread (using coalesced global memory reads)
+__global__ void thread_per_cell_c(double * dout, int fsize, double * xc, double * yc, double * xyf)
 {
 	// Thread and block IDs
 	int myid = threadIdx.x + blockDim.x * blockIdx.x;
-    int tid  = threadIdx.x;
-
-    // sxyf, fdistance are allocated in the kernel call: 3rd arg to <<<b, t, shmem>>>
-	extern __shared__ double sdata[];
-	double *sxyf = &sdata[0]; // This will contain the x and y elements interspersed, i.e. x0, y0, x1, y1, ....
-	
-    // Load shared mem from global mem; sxyf will contain the x and y elements interspersed, i.e. x0, y0, x1, y1, ....
-	sxyf[tid*2] = xf[tid];
-	sxyf[tid*2 + 1] = yf[tid];	
-    __syncthreads();
 
 	double minfdistance = 1e9; // Initialize it to a large value;
 	double fdistance;
@@ -530,7 +575,7 @@ __global__ void thread_per_cell_sh_c(double * dout, int fsize, double * xc, doub
 	for (int j=0; j<fsize; j++)
 	{
 //			minfdistance = min(minfdistance,sqrt(pow(xc[myid]-xf[j],2) + pow(yc[myid]-yf[j],2)));
-		fdistance = sqrt(pow(xc[myid]-sxyf[j*2],2) + pow(yc[myid]-sxyf[j*2 + 1],2));
+		fdistance = sqrt(pow(xc[myid]-xyf[j*2],2) + pow(yc[myid]-xyf[j*2 + 1],2));
 		if ( fdistance < minfdistance)
 		{
 			minfdistance = fdistance;
@@ -546,6 +591,9 @@ void ParallelBF6(int csize, int fsize, double * xc, double * yc, double * xf, do
 {
 	// 	For timing calculations
 	GpuTimer timer;
+	struct rusage tm_start;
+	struct rusage tm_end;
+	double time_in_msec;
 
 	// determine the number of threads and blocks
     int threads, blocks;
@@ -555,27 +603,36 @@ void ParallelBF6(int csize, int fsize, double * xc, double * yc, double * xf, do
 	if(csize%threads) { blocks++; }
 
 	// declare GPU memory pointers
-	double * d_xc, * d_yc, * d_xf, * d_yf;
+	double * d_xc, * d_yc, * d_xyf;
     double * d_wallDist;
+	double xyf[2*fsize];
 	
     // allocate GPU memory
     checkCudaErrors(cudaMalloc(&d_xc, csize*sizeof(double)));
     checkCudaErrors(cudaMalloc(&d_yc, csize*sizeof(double)));
-    checkCudaErrors(cudaMalloc(&d_xf, fsize*sizeof(double)));
-    checkCudaErrors(cudaMalloc(&d_yf, fsize*sizeof(double)));
+    checkCudaErrors(cudaMalloc(&d_xyf, 2*fsize*sizeof(double)));
     checkCudaErrors(cudaMalloc(&d_wallDist, csize*sizeof(double)));
 
 	// Copy from host to GPU memory
     checkCudaErrors(cudaMemcpy(d_xc, xc, csize*sizeof(double), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_yc, yc, csize*sizeof(double), cudaMemcpyHostToDevice));
-    checkCudaErrors(cudaMemcpy(d_xf, xf, fsize*sizeof(double), cudaMemcpyHostToDevice));
-    checkCudaErrors(cudaMemcpy(d_yf, yf, fsize*sizeof(double), cudaMemcpyHostToDevice));
+	// For coalesced global memory access, xyf will contain the x and y elements interspersed, i.e. x0, y0, x1, y1, ....
+	for ( int j=0; j<fsize; j++)
+	{
+		xyf[j*2] = xf[j];
+		xyf[j*2+1] = yf[j];
+	}
+	checkCudaErrors(cudaMemcpy(d_xyf, xyf, 2*fsize*sizeof(double), cudaMemcpyHostToDevice));
 
+	getrusage( RUSAGE_SELF, &tm_start ); 						// Start timer
 	timer.Start(); // Start timer
     // Launch thread per cell kernel to get the wall distance for each cell
-    thread_per_cell_sh_c<<<blocks, threads, 2 * threads * sizeof(double)>>>(d_wallDist, fsize, d_xc, d_yc, d_xf, d_yf);	
+ 	thread_per_cell_c<<<blocks, threads>>>(d_wallDist, fsize, d_xc, d_yc, d_xyf);	
 	timer.Stop(); // Stop timer
 	printf("Brute force - parallel 6 thread per cell coalesced (GpuTimer): \t %.0f milliseconds\n",timer.Elapsed());
+	getrusage( RUSAGE_SELF, &tm_end );   						// End timer
+	time_in_msec = gettime_msec1( &tm_start, &tm_end ); 			// Get elapsed time
+	printf("Brute force - parallel 6 thread per cell coalesced (getTimer): \t %.0f milliseconds\n", time_in_msec);
 
     // Copy result from device back to host
     checkCudaErrors(cudaMemcpy(wallDist, d_wallDist, csize*sizeof(double), cudaMemcpyDeviceToHost));
@@ -583,8 +640,7 @@ void ParallelBF6(int csize, int fsize, double * xc, double * yc, double * xf, do
     // Clean-up memory allocated
 	checkCudaErrors(cudaFree(d_xc));
     checkCudaErrors(cudaFree(d_yc));
-    checkCudaErrors(cudaFree(d_xf));
-    checkCudaErrors(cudaFree(d_yf));
+    checkCudaErrors(cudaFree(d_xyf));
     checkCudaErrors(cudaFree(d_wallDist));
 
 
