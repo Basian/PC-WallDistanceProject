@@ -5,17 +5,18 @@
  *      Author: nathan
  */
 
-#include "ab_serial.h"
+#include "ab_serial_t3.h"
 #include "boundBox.h"
-#include "computeAuxiliaryGrid.h"
-#include "writecell.h"
+#include "computeAuxiliaryGrid_t3.h"
+#include "compactAuxiliaryGrid_t3.h"
+//#include "writecell.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <sys/resource.h>
 #include <sys/times.h>
 
-void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, int size_f, double * wallDist){
+void ab_serial_t3(double * xc, double * yc, double * xf, double * yf, int size_c, int size_f, double * wallDist){
 
 	double xmin;
 	double xmax;
@@ -35,12 +36,12 @@ void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, i
 	int resJ=80;
 	double auxDiag = sqrt( pow((xmax-xmin)/(double)(resI-1),2) + pow((ymax-ymin)/(double)(resJ-1),2));
 	int numAuxCells = (resI-1)*(resJ-1);
-	int i, j, numFaces, cellsWithFaces;
-	struct cell * auxCells;
-	auxCells = (struct cell *)malloc(numAuxCells*sizeof(struct cell));
+	int i, j, k, numFaces, cellsWithFaces;
+	struct cell_t3 * auxCells;
+	auxCells = (struct cell_t3 *)malloc(numAuxCells*sizeof(struct cell_t3));
 
-	computeAuxiliaryGrid(xmin,xmax,ymin,ymax,resI,resJ,auxCells);
-	writecell(auxCells,numAuxCells,0);
+	computeAuxiliaryGrid_t3(xmin,xmax,ymin,ymax,resI,resJ,auxCells);
+//	writecell(auxCells,numAuxCells,0);
 
 	// Count number of auxiliary cells that contain geometry faces
 	cellsWithFaces = 0;
@@ -56,18 +57,13 @@ void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, i
 	}
 
 	// Allocate memory for compacted cells
-	struct cell * compAuxCells;
-	compAuxCells = (struct cell *)malloc(cellsWithFaces*sizeof(struct cell));
+	struct cell_t3 * compAuxCells;
+	compAuxCells = (struct cell_t3 *)malloc(cellsWithFaces*sizeof(struct cell_t3));
 
-	// Initialize linked-list root for each cell
-	for (i=0; i<numAuxCells; i++){
-		auxCells[i].root = NULL;
-	}
 
-	compactAuxiliaryGrid(auxCells,numAuxCells,compAuxCells,xf,yf,size_f);
-	writecell(compAuxCells,cellsWithFaces,1);
 
-	writefaces(compAuxCells,cellsWithFaces);
+	compactAuxiliaryGrid_t3(auxCells,numAuxCells,compAuxCells,xf,yf,size_f);
+
 
 	////////////////////////////////////////////////////////////////////
 	//	Wall Distance Calc
@@ -82,6 +78,7 @@ void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, i
 	 * come auxiliary cells lie within the radius. Search the faces included
 	 * in those auxiliary cells
 	 */
+	int index;
 	double rc, rAux, rFace;
 	double xmid = (xmax+xmin)/2.0;
 	double ymid = (ymax+ymin)/2.0;
@@ -107,6 +104,7 @@ void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, i
 		}
 
 		// Loop through compacted auxCell array to see if any lie within rc
+
 		int includesAuxCells = 0;
 		while(includesAuxCells == 0){
 			for (j=0; j<cellsWithFaces; j++){
@@ -129,21 +127,21 @@ void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, i
 		 *  Loop through compacted auxCell array. For those that lie within rc,
 		 *  traverse through faces, compute wallDist and check for minimum
 		 */
-		struct face * traverse;
 		for (j=0; j<cellsWithFaces; j++){
 
 			rAux = sqrt( pow(xc[i]-compAuxCells[j].xcenter,2) + pow(yc[i]-compAuxCells[j].ycenter,2));
 
 			// Check if auxCell is within radius of interest
 			if(rAux < rc){
-				traverse = compAuxCells[j].root;
+				index = 0;
 
-				while(traverse != NULL){
-					rFace = sqrt( pow(xc[i]-traverse->xf,2) + pow(yc[i]-traverse->yf,2));
+				// Loop through faces
+				while(index < compAuxCells[j].numFaces){
+					rFace = sqrt( pow(xc[i]-compAuxCells[j].face_x[index],2) + pow(yc[i]-compAuxCells[j].face_x[index],2));
 					if(rFace<wallDist[i]){
 						wallDist[i]=rFace;
 					}
-					traverse = traverse->next;
+					index++;
 				}
 			}
 
@@ -152,13 +150,15 @@ void ab_serial(double * xc, double * yc, double * xf, double * yf, int size_c, i
 
 	}
 
+
 	getrusage( RUSAGE_SELF, &tm_end );
 
 	double end = (double)tm_end.ru_utime.tv_sec + (double)tm_end.ru_utime.tv_usec / 1000000.0;
 	double start = (double)tm_start.ru_utime.tv_sec + (double)tm_start.ru_utime.tv_usec / 1000000.0;
 
 	double diff = end-start;
-	printf("Advancing boundary - serial: \t \t \t %.0f milliseconds\n", diff*1000);
+	printf("Advancing boundary - serial T3: \t \t %.0f milliseconds\n", diff*1000);
+
 
 	////////////////////////////////////////////////////////////////////
 	//

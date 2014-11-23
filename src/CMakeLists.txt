@@ -8,7 +8,9 @@ if (CUDA_FOUND)
 	include_directories(${CUDA_INCLUDE_DIRS})
 endif (CUDA_FOUND)
 
-set(CUDA_NVCC_FLAGS "-arch;compute_20" )
+set(CUDA_NVCC_FLAGS "-arch=compute_20;-O3" )
+#set(CUDA_NVCC_FLAGS "-arch=compute_20;-code=sm_20;--ptxas-options=-v" )
+
 #set(CUDA_NVCC_FLAGS "-arch;compute_13" )
 #PROJECT(walldistancecalc Fortran CXX C CUDA)
 

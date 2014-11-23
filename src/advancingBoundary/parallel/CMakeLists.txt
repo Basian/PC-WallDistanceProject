@@ -1,1 +1,1 @@
-CUDA_ADD_LIBRARY( ABparallel compactAuxiliaryGrid_pt1.c computeAuxiliaryGrid_pt1.c boundBox.c ab_pt1.cu )
+CUDA_ADD_LIBRARY( ABparallel compactAuxiliaryGrid_pt1.c computeAuxiliaryGrid_pt1.c compactAuxiliaryGrid_pt2.c computeAuxiliaryGrid_pt2.c boundBox.c ab_pt1.cu ab_pt2.cu )

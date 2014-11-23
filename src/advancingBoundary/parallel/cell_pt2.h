@@ -5,10 +5,10 @@
  *      Author: nathan
  */
 
-#ifndef NODE_T3_H_
-#define NODE_T3_H_
+#ifndef NODE_PT2_H_
+#define NODE_PT2_H_
 
-struct cell_t3{
+struct cell_pt2{
 
 	// Cell Boundaries
 	double xmin, xmax;
@@ -25,4 +25,4 @@ struct cell_t3{
 
 
 
-#endif /* NODE_T3_H_ */
+#endif /* NODE_PT2_H_ */

@@ -32,8 +32,8 @@ void ab_serial_t2(double * xc, double * yc, double * xf, double * yf, int size_c
 
 
 	// Create auxiliary grid
-	int resI=20;
-	int resJ=20;
+	int resI=80;
+	int resJ=80;
 	double auxDiag = sqrt( pow((xmax-xmin)/(double)(resI-1),2) + pow((ymax-ymin)/(double)(resJ-1),2));
 	int numAuxCells = (resI-1)*(resJ-1);
 	int i, j, k, numFaces, cellsWithFaces;

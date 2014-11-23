@@ -18,8 +18,14 @@ extern "C" {
 #include "advancingBoundary/serial/ab_serial_t2.h"
 }
 
+extern "C" {
+#include "advancingBoundary/serial/ab_serial_t3.h"
+}
+
 //extern "C" {
 #include "advancingBoundary/parallel/ab_pt1.h"
+#include "advancingBoundary/parallel/ab_pt2.h"
+
 //}
 
 #include "advancingBoundary/serial/cudaTest.h"
@@ -89,12 +95,16 @@ int main(){
 	double * wallDistAB_t2;
 	wallDistAB_t2 = new double[size_c];
 
+	double * wallDistAB_t3;
+	wallDistAB_t3 = new double[size_c];
+
 	double * wallDistAB_pt1;
 	wallDistAB_pt1 = new double[size_c];
 
 	for(int i=0; i<size_c; i++){
 		wallDistAB[i] = 1e9;
 		wallDistAB_t2[i] = 1e9;
+		wallDistAB_t3[i] = 1e9;
 		wallDistAB_pt1[i] = 1e9;
 		wallDistBFSerial[i] = 1e9;
 		wallDistBFParallel1a[i] = 1e9;
@@ -156,9 +166,19 @@ int main(){
 	// WRITE TO FILE
 	postproc(ni,nj,wallDistAB_t2,2);
 
+	// ABSerial_t3
+	ab_serial_t3(xc,yc,xf,yf,size_c,size_f,wallDistAB_t3);
+	// WRITE TO FILE
+	postproc(ni,nj,wallDistAB_t3,2);
+
+
 
 	// ABparallel_t1
 	ab_parallel_t1(xc,yc,xf,yf,size_c,size_f,wallDistAB_pt1);
+	postproc(ni,nj,wallDistAB_pt1,3);
+
+	// ABparallel_t1
+	ab_parallel_t2(xc,yc,xf,yf,size_c,size_f,wallDistAB_pt1);
 	postproc(ni,nj,wallDistAB_pt1,3);
 
 	///////////////////////////////////////////////////
