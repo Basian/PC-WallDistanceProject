@@ -1,0 +1,33 @@
+Brute force - serial: 	 	 13663 milliseconds
+Block per cell method cannot be executed when there are more than 1024 solid faces
+	Verifying 1a ... Failed
+Block per cell method cannot be executed when there are more than 1024 solid faces
+	Verifying 1b ... Failed
+Block per cell method cannot be executed when there are more than 1024 solid faces
+	Verifying 1c ... Failed
+Brute force - parallel 2a: 	 174 milliseconds
+	Verifying 2a ... Success
+Brute force - parallel 2b: 	 295 milliseconds
+	Verifying 2b ... Success
+Brute force - parallel 2c: 	 168 milliseconds
+	Verifying 2c ... Success
+Advancing boundary - serial: 	 	 	 8927 milliseconds
+Advancing boundary - serial T2: 	 	 11687 milliseconds
+Advancing boundary - parallel T1(GpuTimer): 	 136 milliseconds
+Advancing boundary - parallel T2(GpuTimer): 	 114 milliseconds
+Advancing boundary - parallel T4(GpuTimer): 	 108 milliseconds
+
+-----------------------
+Resources requested:
+mem=4gb
+nodes=1:ppn=1:gpus=1
+-----------------------
+Resources used:
+cput=00:00:38
+walltime=00:00:43
+mem=0.110 GB
+vmem=69.946 GB
+-----------------------
+Resource units charged (estimate):
+0.001 RUs
+-----------------------

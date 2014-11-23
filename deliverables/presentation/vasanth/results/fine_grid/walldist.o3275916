@@ -1,0 +1,33 @@
+Brute force - serial: 	 	 	 603 milliseconds
+Brute force - parallel 1a: 	 28 milliseconds
+	Verifying 1a ... Success
+Brute force - parallel 1b: 	 30 milliseconds
+	Verifying 1b ... Success
+Brute force - parallel 1c: 	 31 milliseconds
+	Verifying 1c ... Success
+Brute force - parallel 2a: 	 7 milliseconds
+	Verifying 2a ... Success
+Brute force - parallel 2b: 	 9 milliseconds
+	Verifying 2b ... Success
+Brute force - parallel 2c: 	 7 milliseconds
+	Verifying 2c ... Success
+Advancing boundary - serial: 	 	 	 463 milliseconds
+Advancing boundary - serial T2: 	 	 549 milliseconds
+Advancing boundary - parallel T1(GpuTimer): 	 8 milliseconds
+Advancing boundary - parallel T2(GpuTimer): 	 7 milliseconds
+Advancing boundary - parallel T4(GpuTimer): 	 7 milliseconds
+
+-----------------------
+Resources requested:
+mem=4gb
+nodes=1:ppn=1:gpus=1
+-----------------------
+Resources used:
+cput=00:00:02
+walltime=00:00:03
+mem=0.000 GB
+vmem=0.000 GB
+-----------------------
+Resource units charged (estimate):
+0.000 RUs
+-----------------------
