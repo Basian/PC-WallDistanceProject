@@ -1,0 +1,532 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  23 NOV 2014 18:09
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\input final_report.tex
+(./final_report.tex (/Users/nathanwukie/.texmf/tex/latex/aiaa-tc.cls
+Document Class: aiaa-tc 2004/11/23 v3.8 AIAA technical conference paper
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/cite/overcite.sty
+Package: overcite 1999/04/23  v 3.8
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip43
+\f@ncyO@elh=\skip44
+\f@ncyO@erh=\skip45
+\f@ncyO@olh=\skip46
+\f@ncyO@orh=\skip47
+\f@ncyO@elf=\skip48
+\f@ncyO@erf=\skip49
+\f@ncyO@olf=\skip50
+\f@ncyO@orf=\skip51
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lastpage/lastpage.sty
+Package: lastpage 2011/09/01 v1.2k Refers to last page's name (HMM; JPG)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count90
+))
+\Gin@req@height=\dimen111
+\Gin@req@width=\dimen112
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen113
+\extrarowheight=\dimen114
+\NC@list=\toks16
+\extratabsurround=\skip52
+\backup@length=\skip53
+)
+\aiaa@overhang=\skip54
+\c@aiaa@cthanks=\count91
+\c@aiaa@cfootnote=\count92
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/varioref.sty
+Package: varioref 2011/10/02 v1.4z package for extended references (FMi)
+\c@vrcnt=\count93
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen115
+\WF@size=\dimen116
+\c@WF@wrappedlines=\count94
+\WF@box=\box26
+\WF@everypar=\toks17
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box27
+) (/usr/local/texlive/2012/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2001/05/28 v1.06 decimal alignment package (DPC)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/nomencl/nomencl.sty
+Package: nomencl 2005/09/22 v4.2 Nomenclature package (LN)
+\nomlabelwidth=\dimen117
+\nom@tempdim=\dimen118
+\nomitemsep=\skip55
+)
+\@glossaryfile=\write3
+\openout3 = `final_report.glo'.
+
+
+Writing glossary file final_report.glo 
+(/usr/local/texlive/2012/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip56
+\subfigcapskip=\skip57
+\subfigcaptopadj=\dimen119
+\subfigbottomskip=\skip58
+\subfigcapmargin=\dimen120
+\subfiglabelskip=\skip59
+\c@subfigure=\count95
+\c@lofdepth=\count96
+\c@subtable=\count97
+\c@lotdepth=\count98
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2012/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip60
+\subfig@bottom=\skip61
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/subfigmat/subfigmat.sty
+Package: subfigmat 1999/02/27 v1.0 Subfigure Matrix Package
+\sfm@width=\skip62
+\sfmcolsep=\skip63
+\c@sfm@count=\count99
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count100
+\FV@InFile=\read1
+\FV@TabBox=\box28
+\c@FancyVerbLine=\count101
+\FV@StepNumber=\count102
+\FV@OutFile=\write4
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lettrine/lettrine.sty
+File: lettrine.sty 2007/08/08 v1.62 (Daniel Flipo)
+\c@DefaultLines=\count103
+\DefaultFindent=\dimen121
+\DefaultNindent=\dimen122
+\DefaultSlope=\dimen123
+\L@lbox=\box29
+\L@tbox=\box30
+\c@L@lines=\count104
+\L@Pindent=\dimen124
+\L@Findent=\dimen125
+\L@Nindent=\dimen126
+\L@lraise=\dimen127
+\L@first=\dimen128
+\L@next=\dimen129
+\L@slope=\dimen130
+\L@height=\dimen131
+\LettrineWidth=\dimen132
+
+Loading lettrine.cfg
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lettrine/lettrine.cfg))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2012/05/21 v1.0 Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+\XKV@toks=\toks18
+\XKV@tempa@toks=\toks19
+\XKV@depth=\count105
+File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box31
+)
+\tc@llx=\dimen133
+\tc@lly=\dimen134
+\tc@urx=\dimen135
+\tc@ury=\dimen136
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen137
+\adjbox@Height=\dimen138
+\adjbox@Depth=\dimen139
+\adjbox@Totalheight=\dimen140
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2011/09/13 v1.0 Conditionals for odd/even page detection
+\c@checkoddpage=\count106
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box32
+\sift@deathcycles=\count107
+\@vwid@loff=\dimen141
+\@vwid@roff=\dimen142
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/soul/soul.sty
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks20
+\SOUL@lasttoken=\toks21
+\SOUL@cmds=\toks22
+\SOUL@buffer=\toks23
+\SOUL@token=\toks24
+\SOUL@spaceskip=\skip64
+\SOUL@ttwidth=\dimen143
+\SOUL@uldp=\dimen144
+\SOUL@ulht=\dimen145
+)
+(./final_report.aux)
+\openout1 = `final_report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(54.2025pt, 668.4975pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=668.4975pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-55.06749pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package lastpage Info: Please have a look at the pageslts package at
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             macros/latex/contrib/pageslts/ 
+(lastpage)             or
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             install/macros/latex/contrib/pageslts.tds.zip
+(lastpage)             ! on input line 44.
+(/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count108
+\scratchdimen=\dimen146
+\scratchbox=\box33
+\nofMPsegments=\count109
+\nofMParguments=\count110
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count111
+\MPscratchDim=\dimen147
+\MPnumerator=\count112
+\makeMPintoPDFobject=\count113
+\everyMPtoPDFconversion=\toks26
+) (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 73.
+ [1
+
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<figures/chimera_grid.png, id=18, 586.19pt x 584.1825pt>
+File: figures/chimera_grid.png Graphic file (type png)
+
+<use figures/chimera_grid.png>
+Package pdftex.def Info: figures/chimera_grid.png used on input line 134.
+(pdftex.def)             Requested size: 140.92102pt x 140.43842pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--165
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 168.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 168.
+ [2 <./figures/chimera_grid.png>]
+<figures/preprocessor/preprocessor_block.png, id=26, 1187.43625pt x 593.21625pt
+>
+File: figures/preprocessor/preprocessor_block.png Graphic file (type png)
+ <use figures/preprocessor/preprocessor_block.png>
+Package pdftex.def Info: figures/preprocessor/preprocessor_block.png used on in
+put line 187.
+(pdftex.def)             Requested size: 469.74788pt x 234.67538pt.
+
+<figures/brute_force/bf_serial_block.png, id=27, 469.755pt x 235.6002pt>
+File: figures/brute_force/bf_serial_block.png Graphic file (type png)
+
+<use figures/brute_force/bf_serial_block.png>
+Package pdftex.def Info: figures/brute_force/bf_serial_block.png used on input 
+line 196.
+(pdftex.def)             Requested size: 469.75386pt x 235.59961pt.
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+
+<figures/brute_force/bf_parallel1_block.png, id=28, 469.755pt x 279.9258pt>
+File: figures/brute_force/bf_parallel1_block.png Graphic file (type png)
+
+<use figures/brute_force/bf_parallel1_block.png>
+Package pdftex.def Info: figures/brute_force/bf_parallel1_block.png used on inp
+ut line 222.
+(pdftex.def)             Requested size: 469.75386pt x 279.92511pt.
+ [3 <./figures/preprocessor/preprocessor_block.png>] [4 <./figures/brute_force/
+bf_serial_block.png> <./figures/brute_force/bf_parallel1_block.png>]
+<figures/brute_force/bf_parallel2_block.png, id=37, 469.755pt x 309.3156pt>
+File: figures/brute_force/bf_parallel2_block.png Graphic file (type png)
+
+<use figures/brute_force/bf_parallel2_block.png>
+Package pdftex.def Info: figures/brute_force/bf_parallel2_block.png used on inp
+ut line 245.
+(pdftex.def)             Requested size: 469.75386pt x 309.31483pt.
+ [5 <./figures/brute_force/bf_parallel2_block.png>]
+<figures/preprocessor/preprocessor_diagram.png, id=42, 1110.1475pt x 231.86626p
+t>
+File: figures/preprocessor/preprocessor_diagram.png Graphic file (type png)
+ <use figures/preprocessor/preprocessor_diagram.png>
+Package pdftex.def Info: figures/preprocessor/preprocessor_diagram.png used on 
+input line 282.
+(pdftex.def)             Requested size: 469.7483pt x 98.11198pt.
+
+<figures/auxiliary_grid/algorithm_diagram.png, id=43, 1085.05376pt x 721.69624p
+t>
+File: figures/auxiliary_grid/algorithm_diagram.png Graphic file (type png)
+ <use figures/auxiliary_grid/algorithm_diagram.png>
+Package pdftex.def Info: figures/auxiliary_grid/algorithm_diagram.png used on i
+nput line 297.
+(pdftex.def)             Requested size: 446.26567pt x 296.8224pt.
+
+<figures/auxiliary_grid/ab_block.png, id=44, 436.9926pt x 542.025pt>
+File: figures/auxiliary_grid/ab_block.png Graphic file (type png)
+
+<use figures/auxiliary_grid/ab_block.png>
+Package pdftex.def Info: figures/auxiliary_grid/ab_block.png used on input line
+ 325.
+(pdftex.def)             Requested size: 328.84384pt x 407.8824pt.
+
+<figures/auxiliary_grid/wallDistance_sequence.png, id=45, 1340.00626pt x 1085.0
+5376pt>
+File: figures/auxiliary_grid/wallDistance_sequence.png Graphic file (type png)
+ <use figures/auxiliary_grid/wallDistance_sequence.png>
+Package pdftex.def Info: figures/auxiliary_grid/wallDistance_sequence.png used 
+on input line 333.
+(pdftex.def)             Requested size: 328.8258pt x 189.46007pt.
+ [6 <./figures/preprocessor/preprocessor_diagram.png>]
+<figures/schedule.png, id=51, 1306.8825pt x 442.65375pt>
+File: figures/schedule.png Graphic file (type png)
+
+<use figures/schedule.png>
+Package pdftex.def Info: figures/schedule.png used on input line 378.
+(pdftex.def)             Requested size: 422.77753pt x 143.19882pt.
+ [7 <./figures/auxiliary_grid/algorithm_diagram.png>] [8 <./figures/auxiliary_g
+rid/wallDistance_sequence.png> <./figures/auxiliary_grid/ab_block.png>] 
+AED: lastpage setting LastPage
+[9 <./figures/schedule.png>] (./final_report.aux) ) 
+Here is how much of TeX's memory you used:
+ 4414 strings out of 493488
+ 65096 string characters out of 3141326
+ 136027 words of memory out of 3000000
+ 7595 multiletter control sequences out of 15000+200000
+ 9166 words of font info for 32 fonts, out of 3000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,11n,45p,1134b,301s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2012/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2012/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2012/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2012/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2012/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2012/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2012/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmti10.pfb>
+Output written on final_report.pdf (9 pages, 850807 bytes).
+PDF statistics:
+ 111 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+
