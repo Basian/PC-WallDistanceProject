@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  23 NOV 2014 18:09
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  26 NOV 2014 13:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -139,62 +139,67 @@ Package: nomencl 2005/09/22 v4.2 Nomenclature package (LN)
 
 
 Writing glossary file final_report.glo 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip56
-\subfigcapskip=\skip57
-\subfigcaptopadj=\dimen119
-\subfigbottomskip=\skip58
-\subfigcapmargin=\dimen120
-\subfiglabelskip=\skip59
-\c@subfigure=\count95
-\c@lofdepth=\count96
-\c@subtable=\count97
-\c@lotdepth=\count98
+(/usr/local/texlive/2012/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2012/02/19 v3.2f Customizing captions (AR)
 
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-(/usr/local/texlive/2012/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip60
-\subfig@bottom=\skip61
+(/usr/local/texlive/2012/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
+\captionmargin=\dimen119
+\captionmargin@=\dimen120
+\captionwidth=\dimen121
+\caption@indent=\dimen122
+\caption@parindent=\dimen123
+\caption@hangindent=\dimen124
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/subfigmat/subfigmat.sty
-Package: subfigmat 1999/02/27 v1.0 Subfigure Matrix Package
-\sfm@width=\skip62
-\sfmcolsep=\skip63
-\c@sfm@count=\count99
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionski
+p \sbox \@tempboxa {\scriptsize \bfseries #1.~~#2}\ifdim \wd \@tempboxa >\hsize
+ \scriptsize \bfseries #1.~~#2\par \else \global \@minipagefalse \hb@xt@ \hsize
+ {\hfil \box \@tempboxa \hfil }\fi \vskip \belowcaptionskip .
+\c@ContinuedFloat=\count95
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
+) (/usr/local/texlive/2012/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
+\c@subfigure=\count96
+\c@subtable=\count97
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
 <2008/02/07> (tvz)
-\FV@CodeLineNo=\count100
+\FV@CodeLineNo=\count98
 \FV@InFile=\read1
 \FV@TabBox=\box28
-\c@FancyVerbLine=\count101
-\FV@StepNumber=\count102
+\c@FancyVerbLine=\count99
+\FV@StepNumber=\count100
 \FV@OutFile=\write4
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lettrine/lettrine.sty
 File: lettrine.sty 2007/08/08 v1.62 (Daniel Flipo)
-\c@DefaultLines=\count103
-\DefaultFindent=\dimen121
-\DefaultNindent=\dimen122
-\DefaultSlope=\dimen123
+\c@DefaultLines=\count101
+\DefaultFindent=\dimen125
+\DefaultNindent=\dimen126
+\DefaultSlope=\dimen127
 \L@lbox=\box29
 \L@tbox=\box30
-\c@L@lines=\count104
-\L@Pindent=\dimen124
-\L@Findent=\dimen125
-\L@Nindent=\dimen126
-\L@lraise=\dimen127
-\L@first=\dimen128
-\L@next=\dimen129
-\L@slope=\dimen130
-\L@height=\dimen131
-\LettrineWidth=\dimen132
+\c@L@lines=\count102
+\L@Pindent=\dimen128
+\L@Findent=\dimen129
+\L@Nindent=\dimen130
+\L@lraise=\dimen131
+\L@first=\dimen132
+\L@next=\dimen133
+\L@slope=\dimen134
+\L@height=\dimen135
+\LettrineWidth=\dimen136
 
 Loading lettrine.cfg
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lettrine/lettrine.cfg))
@@ -207,7 +212,7 @@ Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
 (/usr/local/texlive/2012/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 \XKV@toks=\toks18
 \XKV@tempa@toks=\toks19
-\XKV@depth=\count105
+\XKV@depth=\count103
 File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
 ))
 (/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/adjcalc.sty
@@ -221,30 +226,30 @@ Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
 Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \collectedbox=\box31
 )
-\tc@llx=\dimen133
-\tc@lly=\dimen134
-\tc@urx=\dimen135
-\tc@ury=\dimen136
+\tc@llx=\dimen137
+\tc@lly=\dimen138
+\tc@urx=\dimen139
+\tc@ury=\dimen140
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen137
-\adjbox@Height=\dimen138
-\adjbox@Depth=\dimen139
-\adjbox@Totalheight=\dimen140
+\adjbox@Width=\dimen141
+\adjbox@Height=\dimen142
+\adjbox@Depth=\dimen143
+\adjbox@Totalheight=\dimen144
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2011/09/13 v1.0 Conditionals for odd/even page detection
-\c@checkoddpage=\count106
+\c@checkoddpage=\count104
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box32
-\sift@deathcycles=\count107
-\@vwid@loff=\dimen141
-\@vwid@roff=\dimen142
+\sift@deathcycles=\count105
+\@vwid@loff=\dimen145
+\@vwid@roff=\dimen146
 ))
 (/usr/local/texlive/2012/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
@@ -265,26 +270,26 @@ Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@cmds=\toks22
 \SOUL@buffer=\toks23
 \SOUL@token=\toks24
-\SOUL@spaceskip=\skip64
-\SOUL@ttwidth=\dimen143
-\SOUL@uldp=\dimen144
-\SOUL@ulht=\dimen145
+\SOUL@spaceskip=\skip56
+\SOUL@ttwidth=\dimen147
+\SOUL@uldp=\dimen148
+\SOUL@ulht=\dimen149
 )
 (./final_report.aux)
 \openout1 = `final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -326,19 +331,19 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 44.
+(lastpage)             ! on input line 50.
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count108
-\scratchdimen=\dimen146
+\scratchcounter=\count106
+\scratchdimen=\dimen150
 \scratchbox=\box33
-\nofMPsegments=\count109
-\nofMParguments=\count110
+\nofMPsegments=\count107
+\nofMParguments=\count108
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count111
-\MPscratchDim=\dimen147
-\MPnumerator=\count112
-\makeMPintoPDFobject=\count113
+\MPscratchCnt=\count109
+\MPscratchDim=\dimen151
+\MPnumerator=\count110
+\makeMPintoPDFobject=\count111
 \everyMPtoPDFconversion=\toks26
 ) (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -387,146 +392,154 @@ e
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 46.
+(Font)              <12> on input line 52.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 46.
+(Font)              <8> on input line 52.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 46.
+(Font)              <6> on input line 52.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 46.
+(Font)              <5> on input line 52.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 73.
+(Font)              <7> on input line 79.
  [1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<figures/chimera_grid.png, id=18, 586.19pt x 584.1825pt>
-File: figures/chimera_grid.png Graphic file (type png)
+<figures/grid/chimera_grid.png, id=19, 586.19pt x 584.1825pt>
+File: figures/grid/chimera_grid.png Graphic file (type png)
 
-<use figures/chimera_grid.png>
-Package pdftex.def Info: figures/chimera_grid.png used on input line 134.
+<use figures/grid/chimera_grid.png>
+Package pdftex.def Info: figures/grid/chimera_grid.png used on input line 140.
 (pdftex.def)             Requested size: 140.92102pt x 140.43842pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--165
+<figures/main_application_2.png, id=21, 704.6325pt x 537.00626pt>
+File: figures/main_application_2.png Graphic file (type png)
 
- []
+<use figures/main_application_2.png>
+Package pdftex.def Info: figures/main_application_2.png used on input line 176.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 168.
+(pdftex.def)             Requested size: 281.848pt x 214.79869pt.
+
+<figures/preprocessor/preprocessor_diagram.png, id=22, 1110.1475pt x 231.86626p
+t>
+File: figures/preprocessor/preprocessor_diagram.png Graphic file (type png)
+ <use figures/preprocessor/preprocessor_diagram.png>
+Package pdftex.def Info: figures/preprocessor/preprocessor_diagram.png used on 
+input line 204.
+(pdftex.def)             Requested size: 281.85576pt x 58.86859pt.
+ [2 <./figures/grid/chimera_grid.png>]
+<figures/auxiliary_grid/algorithm_diagram.png, id=27, 1085.05376pt x 721.69624p
+t>
+File: figures/auxiliary_grid/algorithm_diagram.png Graphic file (type png)
+ <use figures/auxiliary_grid/algorithm_diagram.png>
+Package pdftex.def Info: figures/auxiliary_grid/algorithm_diagram.png used on i
+nput line 222.
+(pdftex.def)             Requested size: 328.82994pt x 218.71298pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 253.
+
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 168.
- [2 <./figures/chimera_grid.png>]
-<figures/preprocessor/preprocessor_block.png, id=26, 1187.43625pt x 593.21625pt
->
-File: figures/preprocessor/preprocessor_block.png Graphic file (type png)
- <use figures/preprocessor/preprocessor_block.png>
-Package pdftex.def Info: figures/preprocessor/preprocessor_block.png used on in
-put line 187.
-(pdftex.def)             Requested size: 469.74788pt x 234.67538pt.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 253.
+ [3 <./figures/main_application_2.png> <./figures/preprocessor/preprocessor_dia
+gram.png>]
+<figures/grid/circle_grid.png, id=34, 1028.84375pt x 424.58624pt>
+File: figures/grid/circle_grid.png Graphic file (type png)
 
-<figures/brute_force/bf_serial_block.png, id=27, 469.755pt x 235.6002pt>
-File: figures/brute_force/bf_serial_block.png Graphic file (type png)
+<use figures/grid/circle_grid.png>
+Package pdftex.def Info: figures/grid/circle_grid.png used on input line 276.
+(pdftex.def)             Requested size: 328.82855pt x 135.70192pt.
+ [4 <./figures/auxiliary_grid/algorithm_diagram.png> <./figures/grid/circle_gri
+d.png>]
+<figures/cells/cell_linked_list.png, id=40, 1204.5pt x 903.375pt>
+File: figures/cells/cell_linked_list.png Graphic file (type png)
 
-<use figures/brute_force/bf_serial_block.png>
-Package pdftex.def Info: figures/brute_force/bf_serial_block.png used on input 
-line 196.
-(pdftex.def)             Requested size: 469.75386pt x 235.59961pt.
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
+<use figures/cells/cell_linked_list.png>
+Package pdftex.def Info: figures/cells/cell_linked_list.png used on input line 
+305.
+(pdftex.def)             Requested size: 140.93352pt x 93.84589pt.
 
-<figures/brute_force/bf_parallel1_block.png, id=28, 469.755pt x 279.9258pt>
-File: figures/brute_force/bf_parallel1_block.png Graphic file (type png)
+<figures/cells/cell_pointers.png, id=42, 1204.5pt x 903.375pt>
+File: figures/cells/cell_pointers.png Graphic file (type png)
 
-<use figures/brute_force/bf_parallel1_block.png>
-Package pdftex.def Info: figures/brute_force/bf_parallel1_block.png used on inp
-ut line 222.
-(pdftex.def)             Requested size: 469.75386pt x 279.92511pt.
- [3 <./figures/preprocessor/preprocessor_block.png>] [4 <./figures/brute_force/
-bf_serial_block.png> <./figures/brute_force/bf_parallel1_block.png>]
-<figures/brute_force/bf_parallel2_block.png, id=37, 469.755pt x 309.3156pt>
-File: figures/brute_force/bf_parallel2_block.png Graphic file (type png)
+<use figures/cells/cell_pointers.png>
+Package pdftex.def Info: figures/cells/cell_pointers.png used on input line 319
+.
+(pdftex.def)             Requested size: 147.97601pt x 106.833pt.
 
-<use figures/brute_force/bf_parallel2_block.png>
-Package pdftex.def Info: figures/brute_force/bf_parallel2_block.png used on inp
-ut line 245.
-(pdftex.def)             Requested size: 469.75386pt x 309.31483pt.
- [5 <./figures/brute_force/bf_parallel2_block.png>]
-<figures/preprocessor/preprocessor_diagram.png, id=42, 1110.1475pt x 231.86626p
-t>
-File: figures/preprocessor/preprocessor_diagram.png Graphic file (type png)
- <use figures/preprocessor/preprocessor_diagram.png>
-Package pdftex.def Info: figures/preprocessor/preprocessor_diagram.png used on 
-input line 282.
-(pdftex.def)             Requested size: 469.7483pt x 98.11198pt.
+<figures/cells/cell_array.png, id=44, 1204.5pt x 903.375pt>
+File: figures/cells/cell_array.png Graphic file (type png)
 
-<figures/auxiliary_grid/algorithm_diagram.png, id=43, 1085.05376pt x 721.69624p
-t>
-File: figures/auxiliary_grid/algorithm_diagram.png Graphic file (type png)
- <use figures/auxiliary_grid/algorithm_diagram.png>
-Package pdftex.def Info: figures/auxiliary_grid/algorithm_diagram.png used on i
-nput line 297.
-(pdftex.def)             Requested size: 446.26567pt x 296.8224pt.
+<use figures/cells/cell_array.png>
+Package pdftex.def Info: figures/cells/cell_array.png used on input line 326.
+(pdftex.def)             Requested size: 147.97601pt x 106.833pt.
 
-<figures/auxiliary_grid/ab_block.png, id=44, 436.9926pt x 542.025pt>
-File: figures/auxiliary_grid/ab_block.png Graphic file (type png)
+<figures/cells/cell_arrays.png, id=46, 1204.5pt x 903.375pt>
+File: figures/cells/cell_arrays.png Graphic file (type png)
 
-<use figures/auxiliary_grid/ab_block.png>
-Package pdftex.def Info: figures/auxiliary_grid/ab_block.png used on input line
- 325.
-(pdftex.def)             Requested size: 328.84384pt x 407.8824pt.
+<use figures/cells/cell_arrays.png>
+Package pdftex.def Info: figures/cells/cell_arrays.png used on input line 333.
+(pdftex.def)             Requested size: 147.97601pt x 106.833pt.
 
-<figures/auxiliary_grid/wallDistance_sequence.png, id=45, 1340.00626pt x 1085.0
-5376pt>
-File: figures/auxiliary_grid/wallDistance_sequence.png Graphic file (type png)
- <use figures/auxiliary_grid/wallDistance_sequence.png>
-Package pdftex.def Info: figures/auxiliary_grid/wallDistance_sequence.png used 
-on input line 333.
-(pdftex.def)             Requested size: 328.8258pt x 189.46007pt.
- [6 <./figures/preprocessor/preprocessor_diagram.png>]
-<figures/schedule.png, id=51, 1306.8825pt x 442.65375pt>
-File: figures/schedule.png Graphic file (type png)
+<figures/cells/cell_index.png, id=48, 1204.5pt x 903.375pt>
+File: figures/cells/cell_index.png Graphic file (type png)
 
-<use figures/schedule.png>
-Package pdftex.def Info: figures/schedule.png used on input line 378.
-(pdftex.def)             Requested size: 422.77753pt x 143.19882pt.
- [7 <./figures/auxiliary_grid/algorithm_diagram.png>] [8 <./figures/auxiliary_g
-rid/wallDistance_sequence.png> <./figures/auxiliary_grid/ab_block.png>] 
+<use figures/cells/cell_index.png>
+Package pdftex.def Info: figures/cells/cell_index.png used on input line 340.
+(pdftex.def)             Requested size: 147.97601pt x 106.833pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/schedule_update.png, id=50, 1308.89pt x 444.66125pt>
+File: figures/schedule_update.png Graphic file (type png)
+
+<use figures/schedule_update.png>
+Package pdftex.def Info: figures/schedule_update.png used on input line 400.
+(pdftex.def)             Requested size: 422.76788pt x 143.62436pt.
+ [5 <./figures/cells/cell_linked_list.png> <./figures/cells/cell_pointers.png> 
+<./figures/cells/cell_array.png> <./figures/cells/cell_arrays.png> <./figures/c
+ells/cell_index.png>] (./final_report.bbl)
+
 AED: lastpage setting LastPage
-[9 <./figures/schedule.png>] (./final_report.aux) ) 
+[6 <./figures/schedule_update.png>] (./final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 4414 strings out of 493488
- 65096 string characters out of 3141326
- 136027 words of memory out of 3000000
- 7595 multiletter control sequences out of 15000+200000
- 9166 words of font info for 32 fonts, out of 3000000 for 9000
+ 5306 strings out of 493488
+ 81527 string characters out of 3141326
+ 154901 words of memory out of 3000000
+ 8483 multiletter control sequences out of 15000+200000
+ 9507 words of font info for 33 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,11n,45p,1134b,301s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2012/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf
--dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2012/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2012/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2012/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2012/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2012/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
+ 38i,11n,74p,275b,524s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2
+012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/20
+12/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/201
+2/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/201
+2/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2012
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2012/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2012/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2012/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2012/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb>
-Output written on final_report.pdf (9 pages, 850807 bytes).
+ublic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmti8.pfb>
+Output written on final_report.pdf (6 pages, 1746515 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

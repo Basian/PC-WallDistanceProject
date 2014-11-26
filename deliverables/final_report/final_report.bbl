@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+
+\bibitem{allmaras:12}
+Allmaras, S.~R., Johnson, F.~T., and Spalart, P.~R., \enquote{Modifications and
+  Clarifications for the Implementation of the Spalart-Allmaras Turbulence
+  Model,} Iccfd7-1902, 2012.
+
+\bibitem{hirsch:94}
+Hirsch, C., {\em Numerical Computation of Internal and External Flows: Volume
+  2\/}, John Wiley \& Sons Ltd., 1994.
+
+\bibitem{galbraith:13phd}
+Galbraith, M.~C., {\em A discontinuous Galerkin Chimera overset solver\/},
+  Ph.D. thesis, The University of Cincinnati, 2013.
+
+\bibitem{roget:12}
+Roget, B. and Sitaraman, J., \enquote{Wall distance search algorithm using
+  voxelized marching spheres,} Iccfd7-1204, 2012.
+
+\end{thebibliography}

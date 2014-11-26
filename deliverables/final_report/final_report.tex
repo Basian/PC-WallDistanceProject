@@ -7,8 +7,14 @@
   \newcolumntype{d}{D{.}{.}{-1}}
  \usepackage{nomencl}%   nomenclature generation via makeindex
   \makeglossary
- \usepackage{subfigure}% subcaptions for subfigures
- \usepackage{subfigmat}% matrices of similar subfigures, aka small mulitples
+
+  \usepackage{graphicx}
+  \usepackage{caption}
+  \usepackage{subcaption}
+%  \usepackage{listings}
+  
+% \usepackage{subfigure}% subcaptions for subfigures
+% \usepackage{subfigmat}% matrices of similar subfigures, aka small mulitples
  \usepackage{fancyvrb}%  extended verbatim environments
   \fvset{fontsize=\footnotesize,xleftmargin=2em}
  \usepackage{lettrine}%  dropped capital letter at beginning of paragraph
@@ -103,9 +109,9 @@ One general method for formulating these turbulence models is to
 include ``production'' and ``destruction'' terms for the turbulent
 working variables. In this way, phenomena that typically increase
 turbulence, such as vorticity, will ``produce'' a turbulence effect by
-increasing the turbulent working variable. One of these variables for
-turbulence production/destruction is the distance of a grid cell to
-the nearest solid wall; simply known as the wall distance, $d_{wall}$.
+increasing the turbulent working variable. One variable that governs such
+turbulence production/destruction terms is the distance of a grid cell to
+the nearest solid wall; simply known as the wall distance, $d_{wall}$.\cite{allmaras:12}
 
 
 \subsubsection{Cell-centered, Finite Volume discretization}
@@ -116,22 +122,22 @@ volume method relies on an integral form of the governing equations,
 and the method we are interested in stores all variables at the center
 of each computational cell. The values in each cell can then be
 updated, based on boundary fluxes computed at the interface of each
-computational cell. The value of interest here is the $d_{wall}$
+computational cell.\cite{hirsch:94} The value of interest here is the $d_{wall}$
 variable required by the turbulence model.
 
 \subsubsection{Moving mesh calculation}
 Some investigations that use fluid simulations are interested in moving
 body problems such as store separation for aircraft, and rotating
 machinery, among others. One way to accomplish this is to use
-body-local grids that overlap a background grid as shown in Figure~\ref{f:chimera_grid}. In this way, the body
-grid can move ontop of the background mesh to facilitate body motion. This
+body-local grids that overlap a background grid as shown in Figure~\ref{f:chimera_grid}.\cite{galbraith:13phd} In this way, the body
+grid can move on-top of the background mesh to facilitate body motion. This
 usually works by computing an iteration for the CFD code, computing
 the force on the body of interest, computing the distance moved, and
 updating coordinates of the body-local grid.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.3\linewidth]{figures/chimera_grid}
+  \includegraphics[width=0.3\linewidth]{figures/grid/chimera_grid}
   \caption{Chimera, overlapping grid for moving airfoil simulation}
   \label{f:chimera_grid}
 \end{figure}
@@ -146,218 +152,131 @@ trivial amount of time compared to the overall calculation. For moving
 body simulations however, the wall distance can change after each
 update of the body position and thus has to be recomputed for every
 iteration. It becomes extremely important then, to have an efficient
-method for recomuting the wall distance in order to maintain
+method for recomputing the wall distance in order to maintain
 reasonable computation times. Using graphics processing units(GPU's)
 to accelerate the wall distance computation is seen as a promising
 method for improving computational efficiency for moving body
 problems.
 
-\section{Application-level objectives}
-The goal for this project is to implement a parallel algorithm for
-computing the wall distance for a computational grid on a GPU. The
-benefit of implementing this portion of the CFD code will be improved
-efficiency for moving body CFD calculations. In this investigation,
-two primary methods will be investigated for computing the wall
-distance field; a brute-force algorithm, and also an advancing
-boundary algorithm. Each of these methods can be parallelized in a
-number of different ways, and the details of each method along with
-parallelization options will be discussed in detail. \\
-
-Primary objectives:
-\begin{itemize}
-  \item Serial brute force wall distance calculation
-  \item Parallel implementation of brute force method
-\end{itemize}
-
-Secondary objectives:
-\begin{itemize}
-  \item Serial implementation of advancing boundary algorithm
-  \item Parallel implementation of advancing boundary algorithm
-\end{itemize}
-
-\section{Design overview}
-
-\subsection{Preprocessor}
-A preprocessor will be developed in order handle reading the computationsl grid and
-formatting the data into an efficient manner for use by the wall
-distance calculation algorithms. This module can be seen in block
-diagram form in Figure~\ref{f:preprocessor_block}.
-
-\begin{figure}
-  \includegraphics{figures/preprocessor/preprocessor_block}
-  \caption{Block diagram for data preprocessor}
-  \label{f:preprocessor_block}
-\end{figure}
-
-
-\subsection{Brute force algorithm}
-
-\begin{figure}
-  \includegraphics{figures/brute_force/bf_serial_block}
-  \caption{Serial, brute force algorithm}
-  \label{f:bf_serial}
-\end{figure}
-
-\subsubsection{Serial}
-A serial brute-force implementation for calculating the wall distance
-for an element is shown in Figure~\ref{f:bf_serial}. For each element, a large number of faces would have to be evaluated to check if the face is solid, to calculate its distance from the wall, and then to update the wall distance if this face has the least distance. The opportunity for parallelism arises in being able to perform the checks and wall distance calculation for each face separately.
-
-For each face:
-\begin{itemize}
-  \item Wall distance from the face will be calculated
-  \item b.	The minimum wall distance will be updated if the face wall distance is lower than the current minimum wall distance
-\end{itemize}
-
-In the worst case, work and step complexities for the serial approach
-with n faces would be:
-
-\begin{itemize}
-  \item W ~ n*m = O(mn) – for each element, each solid face will have to be evaluated.  So, total number of operations is O(mn)
-  \item S ~ m = O(m) – all the elements can be evaluated in parallel, but the distance from each solid face to the element is evaluated in sequence.  So, the longest chain of sequential dependencies is O(m).
-\end{itemize}
-
-\subsubsection{Parallel}
-
-\begin{figure}
-  \includegraphics{figures/brute_force/bf_parallel1_block}
-  \caption{Parallel, brute force algorithm \#1}
-  \label{f:bf_parallel1}
-\end{figure}
-
-Two simple parallel implementations for the brute-force method will be explored.  The first parallel implementation for calculating the wall distance for an element is shown in Figure~\ref{f:bf_parallel1}.  For each element, the host sets up block and thread sizes, and then launches a device kernel.  The device kernel will assign a thread for each face, and then compute the wall distance for that face.  The minimum wall distance operation will be computed using atomic min so that only one thread is reading and updating the overall wall distance at a given time. 
-
-The work complexity for this parallel implementation is similar to the
-serial implementation:
-
-\begin{itemize}
-  \item W ~ n*m = O(mn).
-\end{itemize}
-
-It is slightly higher than the serial as there is additional overhead for assigning threads and initializing face wall distance in the parallel implementation.
-Assuming infinite threads, the wall distances for each solid face can be calculated in parallel in one step.  However, the atomic min operation will limit the amount of parallelism that can be performed, as each thread may have to wait a long time before updating the minimum wall distance.  Though the step complexity for this parallel implementation can be improved by dividing the atomic operations to be within blocks, and then combining the results from the blocks, it will not be significantly better than the serial implementation:
-
-\begin{itemize}
-  \item S ~ m = O(m)
-\end{itemize}
-
-
-\begin{figure}
-  \includegraphics{figures/brute_force/bf_parallel2_block}
-  \caption{Parallel, brute force algorithm \#2}
-  \label{f:bf_parallel2}
-\end{figure}
-
-The second parallel implementation for calculating the wall distance for an element is shown in Figure~\ref{f:bf_parallel2}.  For each element, the host sets up block and thread sizes, and then launches device kernels.  The first kernel will assign a thread for each face, and then compute the wall distance for that face (same as the first parallel implementation).  However, after this kernel is executed, a reduce (minimum) operation will be performed to calculate the overall wall distance for the element, instead of using an atomic operation.  
-
-The work complexity for this parallel implementation is similar to the first parallel (and serial) implementation:
-
-\begin{itemize}
-  \item W ~ n*m = O(mn)
-\end{itemize}
-
-However, the step complexity is much lower.  Assuming infinite threads, the wall distances for each face can be calculated in parallel in one step, and the reduce operation to compute the minimum wall distance has a step complexity of log m.  Therefore, step complexity for this parallel implementation is: 
-
-\begin{itemize}
-  \item S(n) ~ log m = O(log m).
-\end{itemize}
-
-\subsection{Advancing boundary algorithm}
-The second method for computing the wall distance field for this
-investigation is an advancing boundary algorithm that relies on creating an
-auxiliary grid, which is used to identify a smaller subset of the
-original set of solid faces that can be sorted more efficiently.
-
-This method consists of two parts. First, a preprocessing step will be
-used to compute an auxiliary grid overtop of the solid geometry. The
-auxiliary grid will then be compacted to include only those cells
-which intersect the solid boundary. The resulting auxiliary grid cells
-should contain multiple geometry faces per cell in order to improve
-efficiency. This auxiliary grid must would only be computed once at the
-beginning of a CFD calculation, and so we are not concerned with the
-efficiency of this step. A diagram of this process can be seen in
-Figure~\ref{f:ab_preprocessor_diagram} but we are not concerned about
-parallelizing this module.
-
-\begin{figure}
-  \includegraphics{figures/preprocessor/preprocessor_diagram}
-  \caption{Advancing boundary method: preprocessing step}
-  \label{f:ab_preprocessor_diagram}
-\end{figure}
-
-
-Once the preprocessing step is completed, the reduced auxiliary grid
-is used as the input to the wall distance calculation. This process,
-which was described above, can be seen in diagram form in
-Figure~\ref{f:ab_diagram} and is used for each compuational cell in
-the grid.
-
+\section{Design and optimization approach}
+The application is laid out as a main function that consists of a
+grid preprocessor, and then function calls to the respective wall
+distance calculation routines. The preprocessor reads the
+computational grid and stores the cell centers as two arrays,
+$x$-coordinates and $y$-coordinates. It also reads in geometry faces and
+stores their respective $x$ and $y$ coordinates in two separate
+arrays. These are the input data to the wall distance calculation
+routines. There are two wall distance calculation methods that are
+being used for this investigation. They are a 'Brute Force' method and
+'Advancing Boundary' method and will be described in the subsequent
+sections. A diagram of the main application can be seen in Figure~\ref{f:main_application}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.95\linewidth]{figures/auxiliary_grid/algorithm_diagram}
-\caption{Advancing boundary method: wall distance calculation}
-\label{f:ab_diagram}
+  \includegraphics[width=0.6\linewidth]{figures/main_application_2}
+  \caption{Main application diagram}
+  \label{f:main_application}
 \end{figure}
 
-\subsubsection{Parallelization}
-There are several opportunities for potential gains in efficiency by
-parallelizing certain portions of this algorithm. These opportunities
-are outlined in the list below:
-
-\begin{itemize}
-\item Step \#2: Implement compact kernel to search for auxiliary cells
-  that lie within specified radius. Returns array of remaining
-  auxiliary cells.
-  
-\item Step \#4: Implement map kernel to compute remaining distance
-  values. Returns array of wall distances.
-  
-\item Step \#5: Implement sort kernel to find minimum wall
-  distance. Returns minimum wall distance.
-\end{itemize}.
-
-A block diagram of the algorithm is shown in
-Figure~\ref{f:ag_block}. Additionally, a sequence diagram outlining
-function/kernel calls is shown in Figure~\ref{f:ag_sequence}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\linewidth]{figures/auxiliary_grid/ab_block}
-  \caption{Auxiliary grid method: block diagram}
-  \label{f:ag_block}
-\end{figure}
-
-
-\begin{figure}
-  \centering
-  \includegraphics[trim=0.0cm 11.0cm 0.0cm 0.0cm, clip=true, width=0.7\linewidth]{figures/auxiliary_grid/wallDistance_sequence}
-  \caption{Ausiliary grid method: sequence diagram}
-  \label{f:ag_sequence}
-\end{figure}
-
-\section{Performance goals}
 
 \subsection{Brute force method}
-The first parallel brute force implementation is not expected to have a significant impact on overall throughput, as the atomic min operation will limit the amount of parallelism that can be performed.  Each thread may have to wait a long time before updating the minimum wall distance.  However, the second parallel implementation is expected to complete execution in a much shorter time period than the serial implementation.  The speedup ratio is expected to be as close to m/(log m) as possible.  For example, if we have 65,536 solid faces, the second parallel implementation should be able to compute the wall distance in 16 steps, compared to 65,536 steps in the serial implementation. Potential bottlenecks for this performance goal are the number of blocks and threads available, and accessing global memory. In order to achieve the most efficient parallel implementation, several techniques will be explored such as assigning an efficient number of block and thread sizes, along with efficient memory usage such as coalesced memory access, and use of available shared memory and thread local memory.
+
+\subsubsection{Complexity}
+
+\subsubsection{Parallelization}
+
 
 \subsection{Advancing boundary method}
-The advancing boundary method is largely experimental and it is
-unclear at the moment if this method will improve efficiency due to
-more kernel calls that would have to be executed. The efficiency will
-also be dependent on the size of the problem and the ratio of solid
-faces to grid cells. A study will be performed to evaluate the
-trade-off between problem size and computational efficiency.
+The ``Advancing Boundary'' method used in this investigation is based
+on work done by Roget and Sitaraman, where they used
+voxelized marching spheres to reduce the wall distance calculation to a small
+subset of the original calculation.\cite{roget:12} The following process is largely the
+same as the description in the paper, with modifications to auxiliary
+cell structures and elimination of some of the more nuanced features.
 
-\subsection{Verification}
-The verification of each algorithm will follow a visual method,
-similar to the process used by the Udacity course. The wall distance
-field variables will be stored to a file that can be opened along with
-the computational grid to view the wall distance field. A visual
-inspection is expected to be sufficient verification as any errors will
-be easily detected.
+The advancing boundary method begins with a preprocessing routine that
+computes a set of auxiliary cells, which are then provided to the wall
+distance calculation routine. This is shown
+as a diagram in Figure~\ref{f:ab_preprocessor}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\linewidth]{figures/preprocessor/preprocessor_diagram}
+  \caption{Advancing Boundary - Preprocessor}
+  \label{f:ab_preprocessor}
+\end{figure}
 
 
-\subsection{Results}
+The goal of the auxiliary cells is that each would contain several
+solid geometry faces. In this way, the wall distance routine can first
+search through the smaller number of auxiliary cells to determine
+those eligible for containing the closest solid face. This allows the
+algorithm to reduce the number of total faces that need checked by
+eliminating multiple solid faces each time an auxiliary cell is
+eliminated. This wall distance calculation process is laid out in the diagram
+in Figure~\ref{f:ab_diagram}.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{figures/auxiliary_grid/algorithm_diagram}
+  \caption{Advancing Boundary - Wall distance calculation}
+  \label{f:ab_diagram}
+\end{figure}
+
+
+
+\subsubsection{Complexity}
+
+The work complexity for this algorithm is related to the number of
+cells in the computational grid and the number of solid geometry faces
+that each cell has to search. In the worst case, each computational
+grid must search through each solid face to find the closest
+face. Therefore, for a case with $n$ computational cells and $m$ solid
+geometry faces, the work complexity of the algorithm is O($n \times
+m$). However, the computation for each cell executes independent of
+all the other cells and requires only one step, which is to search
+through all of the solid geometry faces. As a result, the step
+complexity of the algorithm is O($1$).
+
+\subsubsection{Parallelization}
+This algorithm, much in the same way as the brute force method, has a
+lot of parallelism that can be exploited for improved
+performance. Specifically, the wall distance calculation for each
+computational cell executes independently of all other computational
+cells. The parallel approach used for this study is a thread-per-cell
+technique, where one wall distance kernel thread is launched for each
+computational cell.
+
+
+\begin{itemize}
+\item Work: O($n \times m$)
+\item Step: O(1)
+\end{itemize}
+
+
+\section{Application performance and results}
+The following sections present the methods used to benchmark each
+algorithm, along with the various modifications implemented to improve
+performance. Finally, timings for both serial and parallel
+implementations are presented for both methods to evaluate the overall
+speedup achieved via the parallel GPU implementation.
+
+
+\subsubsection{Problem set}
+The problem set chosen for this investigation was a solid circular
+body, surrounded by a circular discretized domain. This simple
+geometry allowed a computational grid to be easily refined in order to
+load algorithms more heavily and reduce the effect of computational
+overhead on the overall timings. The grid and wall distance field can
+be seen in Figure~\ref{f:circle}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{figures/grid/circle_grid}
+  \caption{Computational grid and corresponding wall distance field}
+  \label{f:circle}
+\end{figure}
 
 
 \subsubsection{Brute-force algorithm}
@@ -366,24 +285,137 @@ be easily detected.
 
 
 \subsubsection{Advancing boundary algorithm}
+Several implementations of the advancing boundary algorithm were
+tested, both for serial and parallel algorithms. The different methods
+for improving performance included memory management and changing storage
+structures. The initial serial algorithm was implemented with an
+'Auxiliary Cell' struct that would include the geometric information
+for a given auxiliary cell, in addition to providing some method for
+accessing the faces that were contained in the face. The general
+layout of this struct was similar for all iterations of the serial and
+parallel codes. Only the face storage mechanism was altered for more
+efficient memory accesses. The first iteration of these stored the
+faces as a linked-list of face structs, each of which stored the x,y
+pair associated with a face center. This initial configuration is shown in
+Figure~\ref{f:initial_aux_cell}.
+
+\begin{figure}
+  \centering
+  \includegraphics[trim=11.2cm 21.8cm 24cm 5.2cm,
+  clip=true, width=0.3\linewidth]{figures/cells/cell_linked_list}
+  \caption{Initial auxiliary cell struct}
+  \label{f:initial_aux_cell}
+\end{figure}
+
+Other methods for storing the faces included pointers to face arrays,
+explicitly allocated arrays in the cell struct, and also an array of
+face indices that would facilitate access to the correct face in an
+external array.
+
+\begin{figure}
+  \begin{subfigure}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[trim=11.2cm 21.8cm 24cm 4.8cm,
+    clip=true, width=0.7\linewidth]{figures/cells/cell_pointers}
+    \caption{Struct A: Pointers to storage arrays}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[trim=11.2cm 21.8cm 24cm 4.8cm,
+    clip=true, width=0.7\linewidth]{figures/cells/cell_array}
+    \caption{Struct B: Explicitly allocated in-cell storage}
+  \end{subfigure}
+  
+  \begin{subfigure}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[trim=11.2cm 21.8cm 24cm 4.8cm,
+    clip=true, width=0.7\linewidth]{figures/cells/cell_arrays}
+    \caption{Struct C: Separate in-cell storage}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[trim=11.2cm 21.8cm 24cm 4.8cm,
+    clip=true, width=0.7\linewidth]{figures/cells/cell_index}
+    \caption{Struct D: Face index array}
+  \end{subfigure}
+  
+  \caption{Auxiliary cell struct versions}
+\end{figure}
+
+
+The timings for the Serial algorithm are shown in
+Table~\ref{t:serial}. The linked-list method of storing faces was the
+most efficient access method of those tested. The best-performing
+serial algorithm was then compared to the parallel algorithms to gauge
+the parallel speedup factor. The parallel timings are shown in
+Table~\ref{t:parallel}. The initial implementation used all global
+memory accesses and subsequent improvements focused on bringing in
+reusable data into shared memory or local registers. Some final
+performance improvements were achieved by restructuring the face
+storage structure.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccc}
+    Iteration & Description & Average Time (ms) \\
+    \hline\hline
+    T1 & Baseline, linked-list of faces & 8796 \\
+    T2 & New aux cell struct & 11044 \\
+    T3 & New aux cell struct & 10007 \\
+    \hline
+  \end{tabular}
+  \caption{Serial ``Advancing Boundary'' algorithm development and performance}
+  \label{t:serial}
+\end{table}
+
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{cccc}
+    Iteration & Description & Average Time (ms) & Speedup vs. Serial\\
+    \hline\hline
+    T1 & Baseline, no shared memory & 134 & 65\\
+    T2 & Memory management & 114 & 77\\
+    T3 & Memory management & 114 & 77\\
+    T4 & Memory management & 112 & 78\\
+    T5 & Memory management & 113 & 78\\
+    T4 - new cell - 1 & New aux cell struct & 106 & 83\\
+    T4 - new cell - 2& New aux cell struct & 102 & 86\\
+    \hline
+  \end{tabular}
+  \caption{Parallel ``Advancing Boundary'' algorithm development and performance}
+  \label{t:parallel}
+\end{table}
 
 
 
 \section{Schedule and division of work}
-Figure~\ref{f:schedule} shows the proposed development schedule for
-this effort along with the tentative work split between the team contributors.
+Figure~\ref{f:schedule} shows the work split between the team contributors.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{figures/schedule}
+  \includegraphics[width=0.9\linewidth]{figures/schedule_update}
   \caption{Development schedule and division of work}
   \label{f:schedule}
 \end{figure}
 
+
+\subsection{Self-assessment: Nathan Wukie}
+I provided the primary topic and guidance for the project, along with
+the application framework, preprocessor, and cmake
+usage. Additionally, I was responsible for the ``Advancing Boundary''
+algorithm development, implementation, and parallelization.
+
+\subsection{Self-assessment: Vasanth Ganapathy}
+
+
 % produces the bibliography section when processed by BibTeX
-%\nocite{*}
-%\bibliography{bibliography}
-%\bibliographystyle{aiaa}
+\nocite{*}
+\bibliography{bibliography}
+\bibliographystyle{aiaa}
 
 \end{document}
 
