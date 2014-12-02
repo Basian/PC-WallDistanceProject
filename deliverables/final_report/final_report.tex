@@ -216,13 +216,6 @@ updated if this face has the least distance.
 The work and step complexities for the serial approach with $n$ cell
 elements and $m$ solid faces can be approximated as: 
 
-Work: O(n x m) – for each cell element, each solid face will have to
-be evaluated.  So, total number of operations is in the order of n x
-m. Step: O(m) – the cell elements can be evaluated in parallel, but the
-distance from each solid face to the element is evaluated in sequence.
-So, the longest chain of sequential dependencies is in the order of m.
-
-
 \begin{itemize}
   
 \item Work: O($n \times m$) - for each cell element, each solid face
@@ -488,7 +481,7 @@ not a good algorithm for utilizing shared memory, since each thread
 has to calculate the wall distance for a cell.  However, this method
 (2B) was implemented in order to access if there is a performance gain
 from one thread in a block reading the face values and storing them in
-shared memory, instead of all threads reading them from shared memory.
+shared memory, instead of all threads reading them from global memory.
 As expected, this caused a negative impact on performance due to
 thread divergence, as one thread had to perform significantly large
 amount of work compared to all the other threads in the block.  The
@@ -636,6 +629,13 @@ storage structure.
   \label{t:parallel}
 \end{table}
 
+
+Future improvements to the Advancing Boundary wall distance
+calculation algorithm could include some alternate methods for memory
+management in order to improve memory access efficiency. It would be
+interesting to explore other storage structures for auxiliary cell
+data and other methods for organizing this information that may
+improve the overall efficiency of the algorithm.
 
 
 \section{Schedule and division of work}

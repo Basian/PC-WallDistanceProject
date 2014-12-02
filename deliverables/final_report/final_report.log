@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  2 DEC 2014 12:02
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  2 DEC 2014 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -485,20 +485,14 @@ Package pdftex.def Info: figures/brute_force/bf_2.png used on input line 207.
  [2 <./figures/grid/chimera_grid.png>]
 [3 <./figures/main_application_2.png> <./figures/brute_force/bf_1.png> <./figur
 es/brute_force/bf_2.png>]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 228.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 221.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 228.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 221.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
@@ -513,55 +507,54 @@ Missing character: There is no ™ in font cmr10!
 File: figures/brute_force/bf_3.png Graphic file (type png)
 
 <use figures/brute_force/bf_3.png>
-Package pdftex.def Info: figures/brute_force/bf_3.png used on input line 262.
+Package pdftex.def Info: figures/brute_force/bf_3.png used on input line 255.
 (pdftex.def)             Requested size: 469.76678pt x 140.25966pt.
 
 <figures/brute_force/bf_4.png, id=35, 438.9198pt x 131.0496pt>
 File: figures/brute_force/bf_4.png Graphic file (type png)
 
 <use figures/brute_force/bf_4.png>
-Package pdftex.def Info: figures/brute_force/bf_4.png used on input line 268.
+Package pdftex.def Info: figures/brute_force/bf_4.png used on input line 261.
 (pdftex.def)             Requested size: 469.76678pt x 140.25966pt.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
+ [4 <./figures/brute_force/bf_3.png> <./figures/brute_force/bf_4.png>]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [4 <./figures/brute_force/bf_3.png>]
-<figures/preprocessor/preprocessor_diagram.png, id=41, 1110.1475pt x 231.86626p
+
+<figures/preprocessor/preprocessor_diagram.png, id=42, 1110.1475pt x 231.86626p
 t>
 File: figures/preprocessor/preprocessor_diagram.png Graphic file (type png)
  <use figures/preprocessor/preprocessor_diagram.png>
 Package pdftex.def Info: figures/preprocessor/preprocessor_diagram.png used on 
-input line 316.
+input line 309.
 (pdftex.def)             Requested size: 281.85576pt x 58.86859pt.
 
-<figures/auxiliary_grid/algorithm_diagram.png, id=42, 1085.05376pt x 721.69624p
+<figures/auxiliary_grid/algorithm_diagram.png, id=43, 1085.05376pt x 721.69624p
 t>
 File: figures/auxiliary_grid/algorithm_diagram.png Graphic file (type png)
  <use figures/auxiliary_grid/algorithm_diagram.png>
 Package pdftex.def Info: figures/auxiliary_grid/algorithm_diagram.png used on i
-nput line 334.
+nput line 327.
 (pdftex.def)             Requested size: 328.82994pt x 218.71298pt.
- [5 <./figures/brute_force/bf_4.png> <./figures/preprocessor/preprocessor_diagr
-am.png>]
-<figures/grid/circle_grid.png, id=48, 1028.84375pt x 424.58624pt>
+ [5 <./figures/preprocessor/preprocessor_diagram.png> <./figures/auxiliary_grid
+/algorithm_diagram.png>]
+<figures/grid/circle_grid.png, id=49, 1028.84375pt x 424.58624pt>
 File: figures/grid/circle_grid.png Graphic file (type png)
 
 <use figures/grid/circle_grid.png>
-Package pdftex.def Info: figures/grid/circle_grid.png used on input line 388.
+Package pdftex.def Info: figures/grid/circle_grid.png used on input line 381.
 (pdftex.def)             Requested size: 328.82855pt x 135.70192pt.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [6 <./figures/auxiliary_grid/algorithm_diagram.png> <./figures/grid/circle_gri
-d.png>]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-
-Overfull \hbox (3.42603pt too wide) in paragraph at lines 448--469
+ [6 <./figures/grid/circle_grid.png>]
+Overfull \hbox (3.42603pt too wide) in paragraph at lines 441--462
  [] 
  []
 
@@ -579,14 +572,14 @@ File: figures/cells/cell_linked_list.png Graphic file (type png)
 
 <use figures/cells/cell_linked_list.png>
 Package pdftex.def Info: figures/cells/cell_linked_list.png used on input line 
-551.
+544.
 (pdftex.def)             Requested size: 140.93352pt x 93.84589pt.
 
 <figures/cells/cell_pointers.png, id=60, 1204.5pt x 903.375pt>
 File: figures/cells/cell_pointers.png Graphic file (type png)
 
 <use figures/cells/cell_pointers.png>
-Package pdftex.def Info: figures/cells/cell_pointers.png used on input line 565
+Package pdftex.def Info: figures/cells/cell_pointers.png used on input line 558
 .
 (pdftex.def)             Requested size: 147.97601pt x 106.833pt.
 
@@ -594,21 +587,21 @@ Package pdftex.def Info: figures/cells/cell_pointers.png used on input line 565
 File: figures/cells/cell_array.png Graphic file (type png)
 
 <use figures/cells/cell_array.png>
-Package pdftex.def Info: figures/cells/cell_array.png used on input line 572.
+Package pdftex.def Info: figures/cells/cell_array.png used on input line 565.
 (pdftex.def)             Requested size: 147.97601pt x 106.833pt.
 
 <figures/cells/cell_arrays.png, id=64, 1204.5pt x 903.375pt>
 File: figures/cells/cell_arrays.png Graphic file (type png)
 
 <use figures/cells/cell_arrays.png>
-Package pdftex.def Info: figures/cells/cell_arrays.png used on input line 579.
+Package pdftex.def Info: figures/cells/cell_arrays.png used on input line 572.
 (pdftex.def)             Requested size: 147.97601pt x 106.833pt.
 
 <figures/cells/cell_index.png, id=66, 1204.5pt x 903.375pt>
 File: figures/cells/cell_index.png Graphic file (type png)
 
 <use figures/cells/cell_index.png>
-Package pdftex.def Info: figures/cells/cell_index.png used on input line 586.
+Package pdftex.def Info: figures/cells/cell_index.png used on input line 579.
 (pdftex.def)             Requested size: 147.97601pt x 106.833pt.
  [8 <./figures/cells/cell_linked_list.png> <./figures/cells/cell_pointers.png> 
 <./figures/cells/cell_array.png> <./figures/cells/cell_arrays.png> <./figures/c
@@ -1247,7 +1240,7 @@ AED: lastpage setting LastPage
 Here is how much of TeX's memory you used:
  6648 strings out of 493488
  102753 string characters out of 3141326
- 183131 words of memory out of 3000000
+ 182131 words of memory out of 3000000
  9795 multiletter control sequences out of 15000+200000
  10113 words of font info for 35 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -1269,7 +1262,7 @@ usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
 r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
 local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on final_report.pdf (25 pages, 3235240 bytes).
+Output written on final_report.pdf (25 pages, 3235478 bytes).
 PDF statistics:
  424 PDF objects out of 1000 (max. 8388607)
  153 compressed objects within 2 object streams
