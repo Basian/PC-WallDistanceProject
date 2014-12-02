@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  26 NOV 2014 13:21
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  2 DEC 2014 12:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -170,36 +170,92 @@ Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
 \c@subfigure=\count96
 \c@subtable=\count97
 )
+(/usr/local/texlive/2012/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count98
+\c@@ppsavesec=\count99
+\c@@ppsaveapp=\count100
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2012/04/03 v0.4s Insert pages of external PDF documents (AM)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count101
+\calc@Bcount=\count102
+\calc@Adimen=\dimen125
+\calc@Bdimen=\dimen126
+\calc@Askip=\skip56
+\calc@Bskip=\skip57
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count103
+\calc@Cskip=\skip58
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2010/10/06 v2.0c eso-pic (RN)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2012/04/03 v0.4s Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box28
+\AM@toc@title=\toks18
+\c@AM@survey=\count104
+\AM@templatesizebox=\box29
+)
 (/usr/local/texlive/2012/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
 <2008/02/07> (tvz)
-\FV@CodeLineNo=\count98
+\FV@CodeLineNo=\count105
 \FV@InFile=\read1
-\FV@TabBox=\box28
-\c@FancyVerbLine=\count99
-\FV@StepNumber=\count100
+\FV@TabBox=\box30
+\c@FancyVerbLine=\count106
+\FV@StepNumber=\count107
 \FV@OutFile=\write4
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lettrine/lettrine.sty
 File: lettrine.sty 2007/08/08 v1.62 (Daniel Flipo)
-\c@DefaultLines=\count101
-\DefaultFindent=\dimen125
-\DefaultNindent=\dimen126
-\DefaultSlope=\dimen127
-\L@lbox=\box29
-\L@tbox=\box30
-\c@L@lines=\count102
-\L@Pindent=\dimen128
-\L@Findent=\dimen129
-\L@Nindent=\dimen130
-\L@lraise=\dimen131
-\L@first=\dimen132
-\L@next=\dimen133
-\L@slope=\dimen134
-\L@height=\dimen135
-\LettrineWidth=\dimen136
+\c@DefaultLines=\count108
+\DefaultFindent=\dimen127
+\DefaultNindent=\dimen128
+\DefaultSlope=\dimen129
+\L@lbox=\box31
+\L@tbox=\box32
+\c@L@lines=\count109
+\L@Pindent=\dimen130
+\L@Findent=\dimen131
+\L@Nindent=\dimen132
+\L@lraise=\dimen133
+\L@first=\dimen134
+\L@next=\dimen135
+\L@slope=\dimen136
+\L@height=\dimen137
+\LettrineWidth=\dimen138
 
 Loading lettrine.cfg
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lettrine/lettrine.cfg))
@@ -210,9 +266,9 @@ Package: adjustbox 2012/05/21 v1.0 Adjusting TeX boxes (trim, clip, ...)
 Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
 
 (/usr/local/texlive/2012/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-\XKV@toks=\toks18
-\XKV@tempa@toks=\toks19
-\XKV@depth=\count103
+\XKV@toks=\toks19
+\XKV@tempa@toks=\toks20
+\XKV@depth=\count110
 File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
 ))
 (/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/adjcalc.sty
@@ -224,72 +280,64 @@ Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
-\collectedbox=\box31
+\collectedbox=\box33
 )
-\tc@llx=\dimen137
-\tc@lly=\dimen138
-\tc@urx=\dimen139
-\tc@ury=\dimen140
+\tc@llx=\dimen139
+\tc@lly=\dimen140
+\tc@urx=\dimen141
+\tc@ury=\dimen142
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen141
-\adjbox@Height=\dimen142
-\adjbox@Depth=\dimen143
-\adjbox@Totalheight=\dimen144
+\adjbox@Width=\dimen143
+\adjbox@Height=\dimen144
+\adjbox@Depth=\dimen145
+\adjbox@Totalheight=\dimen146
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2011/09/13 v1.0 Conditionals for odd/even page detection
-\c@checkoddpage=\count104
+\c@checkoddpage=\count111
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box32
-\sift@deathcycles=\count105
-\@vwid@loff=\dimen145
-\@vwid@roff=\dimen146
+\@vwid@box=\box34
+\sift@deathcycles=\count112
+\@vwid@loff=\dimen147
+\@vwid@roff=\dimen148
 ))
 (/usr/local/texlive/2012/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
-
-(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package color Info: Driver file: pdftex.def on input line 130.
-)
 (/usr/local/texlive/2012/texmf-dist/tex/latex/soul/soul.sty
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
-\SOUL@word=\toks20
-\SOUL@lasttoken=\toks21
-\SOUL@cmds=\toks22
-\SOUL@buffer=\toks23
-\SOUL@token=\toks24
-\SOUL@spaceskip=\skip56
-\SOUL@ttwidth=\dimen147
-\SOUL@uldp=\dimen148
-\SOUL@ulht=\dimen149
+\SOUL@word=\toks21
+\SOUL@lasttoken=\toks22
+\SOUL@cmds=\toks23
+\SOUL@buffer=\toks24
+\SOUL@token=\toks25
+\SOUL@spaceskip=\skip59
+\SOUL@ttwidth=\dimen149
+\SOUL@uldp=\dimen150
+\SOUL@ulht=\dimen151
 )
 (./final_report.aux)
 \openout1 = `final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -331,20 +379,20 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 50.
+(lastpage)             ! on input line 52.
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
-\scratchdimen=\dimen150
-\scratchbox=\box33
-\nofMPsegments=\count107
-\nofMParguments=\count108
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count109
-\MPscratchDim=\dimen151
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count113
+\scratchdimen=\dimen152
+\scratchbox=\box35
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen153
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks27
 ) (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -389,157 +437,842 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
-)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box36
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 52.
+(Font)              <12> on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 52.
+(Font)              <8> on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 52.
+(Font)              <6> on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 52.
+(Font)              <5> on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 79.
- [1
+(Font)              <7> on input line 81.
+
+[1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 <figures/grid/chimera_grid.png, id=19, 586.19pt x 584.1825pt>
 File: figures/grid/chimera_grid.png Graphic file (type png)
 
 <use figures/grid/chimera_grid.png>
-Package pdftex.def Info: figures/grid/chimera_grid.png used on input line 140.
+Package pdftex.def Info: figures/grid/chimera_grid.png used on input line 142.
 (pdftex.def)             Requested size: 140.92102pt x 140.43842pt.
 
 <figures/main_application_2.png, id=21, 704.6325pt x 537.00626pt>
 File: figures/main_application_2.png Graphic file (type png)
 
 <use figures/main_application_2.png>
-Package pdftex.def Info: figures/main_application_2.png used on input line 176.
+Package pdftex.def Info: figures/main_application_2.png used on input line 178.
 
 (pdftex.def)             Requested size: 281.848pt x 214.79869pt.
 
-<figures/preprocessor/preprocessor_diagram.png, id=22, 1110.1475pt x 231.86626p
-t>
-File: figures/preprocessor/preprocessor_diagram.png Graphic file (type png)
- <use figures/preprocessor/preprocessor_diagram.png>
-Package pdftex.def Info: figures/preprocessor/preprocessor_diagram.png used on 
-input line 204.
-(pdftex.def)             Requested size: 281.85576pt x 58.86859pt.
+<figures/brute_force/bf_1.png, id=22, 492.3996pt x 145.0218pt>
+File: figures/brute_force/bf_1.png Graphic file (type png)
+
+<use figures/brute_force/bf_1.png>
+Package pdftex.def Info: figures/brute_force/bf_1.png used on input line 194.
+(pdftex.def)             Requested size: 328.83911pt x 96.84987pt.
+
+<figures/brute_force/bf_2.png, id=23, 480.8364pt x 240.9pt>
+File: figures/brute_force/bf_2.png Graphic file (type png)
+
+<use figures/brute_force/bf_2.png>
+Package pdftex.def Info: figures/brute_force/bf_2.png used on input line 207.
+(pdftex.def)             Requested size: 469.77107pt x 235.35623pt.
  [2 <./figures/grid/chimera_grid.png>]
-<figures/auxiliary_grid/algorithm_diagram.png, id=27, 1085.05376pt x 721.69624p
-t>
-File: figures/auxiliary_grid/algorithm_diagram.png Graphic file (type png)
- <use figures/auxiliary_grid/algorithm_diagram.png>
-Package pdftex.def Info: figures/auxiliary_grid/algorithm_diagram.png used on i
-nput line 222.
-(pdftex.def)             Requested size: 328.82994pt x 218.71298pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 253.
+[3 <./figures/main_application_2.png> <./figures/brute_force/bf_1.png> <./figur
+es/brute_force/bf_2.png>]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 228.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 253.
- [3 <./figures/main_application_2.png> <./figures/preprocessor/preprocessor_dia
-gram.png>]
-<figures/grid/circle_grid.png, id=34, 1028.84375pt x 424.58624pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 228.
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+<figures/brute_force/bf_3.png, id=34, 438.9198pt x 131.0496pt>
+File: figures/brute_force/bf_3.png Graphic file (type png)
+
+<use figures/brute_force/bf_3.png>
+Package pdftex.def Info: figures/brute_force/bf_3.png used on input line 262.
+(pdftex.def)             Requested size: 469.76678pt x 140.25966pt.
+
+<figures/brute_force/bf_4.png, id=35, 438.9198pt x 131.0496pt>
+File: figures/brute_force/bf_4.png Graphic file (type png)
+
+<use figures/brute_force/bf_4.png>
+Package pdftex.def Info: figures/brute_force/bf_4.png used on input line 268.
+(pdftex.def)             Requested size: 469.76678pt x 140.25966pt.
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+ [4 <./figures/brute_force/bf_3.png>]
+<figures/preprocessor/preprocessor_diagram.png, id=41, 1110.1475pt x 231.86626p
+t>
+File: figures/preprocessor/preprocessor_diagram.png Graphic file (type png)
+ <use figures/preprocessor/preprocessor_diagram.png>
+Package pdftex.def Info: figures/preprocessor/preprocessor_diagram.png used on 
+input line 316.
+(pdftex.def)             Requested size: 281.85576pt x 58.86859pt.
+
+<figures/auxiliary_grid/algorithm_diagram.png, id=42, 1085.05376pt x 721.69624p
+t>
+File: figures/auxiliary_grid/algorithm_diagram.png Graphic file (type png)
+ <use figures/auxiliary_grid/algorithm_diagram.png>
+Package pdftex.def Info: figures/auxiliary_grid/algorithm_diagram.png used on i
+nput line 334.
+(pdftex.def)             Requested size: 328.82994pt x 218.71298pt.
+ [5 <./figures/brute_force/bf_4.png> <./figures/preprocessor/preprocessor_diagr
+am.png>]
+<figures/grid/circle_grid.png, id=48, 1028.84375pt x 424.58624pt>
 File: figures/grid/circle_grid.png Graphic file (type png)
 
 <use figures/grid/circle_grid.png>
-Package pdftex.def Info: figures/grid/circle_grid.png used on input line 276.
+Package pdftex.def Info: figures/grid/circle_grid.png used on input line 388.
 (pdftex.def)             Requested size: 328.82855pt x 135.70192pt.
- [4 <./figures/auxiliary_grid/algorithm_diagram.png> <./figures/grid/circle_gri
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+ [6 <./figures/auxiliary_grid/algorithm_diagram.png> <./figures/grid/circle_gri
 d.png>]
-<figures/cells/cell_linked_list.png, id=40, 1204.5pt x 903.375pt>
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+
+Overfull \hbox (3.42603pt too wide) in paragraph at lines 448--469
+ [] 
+ []
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+[7] <figures/cells/cell_linked_list.png, id=58, 1204.5pt x 903.375pt>
 File: figures/cells/cell_linked_list.png Graphic file (type png)
 
 <use figures/cells/cell_linked_list.png>
 Package pdftex.def Info: figures/cells/cell_linked_list.png used on input line 
-305.
+551.
 (pdftex.def)             Requested size: 140.93352pt x 93.84589pt.
 
-<figures/cells/cell_pointers.png, id=42, 1204.5pt x 903.375pt>
+<figures/cells/cell_pointers.png, id=60, 1204.5pt x 903.375pt>
 File: figures/cells/cell_pointers.png Graphic file (type png)
 
 <use figures/cells/cell_pointers.png>
-Package pdftex.def Info: figures/cells/cell_pointers.png used on input line 319
+Package pdftex.def Info: figures/cells/cell_pointers.png used on input line 565
 .
 (pdftex.def)             Requested size: 147.97601pt x 106.833pt.
 
-<figures/cells/cell_array.png, id=44, 1204.5pt x 903.375pt>
+<figures/cells/cell_array.png, id=62, 1204.5pt x 903.375pt>
 File: figures/cells/cell_array.png Graphic file (type png)
 
 <use figures/cells/cell_array.png>
-Package pdftex.def Info: figures/cells/cell_array.png used on input line 326.
+Package pdftex.def Info: figures/cells/cell_array.png used on input line 572.
 (pdftex.def)             Requested size: 147.97601pt x 106.833pt.
 
-<figures/cells/cell_arrays.png, id=46, 1204.5pt x 903.375pt>
+<figures/cells/cell_arrays.png, id=64, 1204.5pt x 903.375pt>
 File: figures/cells/cell_arrays.png Graphic file (type png)
 
 <use figures/cells/cell_arrays.png>
-Package pdftex.def Info: figures/cells/cell_arrays.png used on input line 333.
+Package pdftex.def Info: figures/cells/cell_arrays.png used on input line 579.
 (pdftex.def)             Requested size: 147.97601pt x 106.833pt.
 
-<figures/cells/cell_index.png, id=48, 1204.5pt x 903.375pt>
+<figures/cells/cell_index.png, id=66, 1204.5pt x 903.375pt>
 File: figures/cells/cell_index.png Graphic file (type png)
 
 <use figures/cells/cell_index.png>
-Package pdftex.def Info: figures/cells/cell_index.png used on input line 340.
+Package pdftex.def Info: figures/cells/cell_index.png used on input line 586.
 (pdftex.def)             Requested size: 147.97601pt x 106.833pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/schedule_update.png, id=50, 1308.89pt x 444.66125pt>
+ [8 <./figures/cells/cell_linked_list.png> <./figures/cells/cell_pointers.png> 
+<./figures/cells/cell_array.png> <./figures/cells/cell_arrays.png> <./figures/c
+ells/cell_index.png>]
+<figures/schedule_update.png, id=77, 1308.89pt x 444.66125pt>
 File: figures/schedule_update.png Graphic file (type png)
 
 <use figures/schedule_update.png>
-Package pdftex.def Info: figures/schedule_update.png used on input line 400.
+Package pdftex.def Info: figures/schedule_update.png used on input line 646.
 (pdftex.def)             Requested size: 422.76788pt x 143.62436pt.
- [5 <./figures/cells/cell_linked_list.png> <./figures/cells/cell_pointers.png> 
-<./figures/cells/cell_array.png> <./figures/cells/cell_arrays.png> <./figures/c
-ells/cell_index.png>] (./final_report.bbl)
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+ (./final_report.bbl [9 <./figures/schedule_update.png>]) [10]
+Underfull \hbox (badness 10000) in paragraph at lines 676--682
+
+ []
+
+[11
+
+] <slides/assembled_final.pdf, id=92, page=1, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 1>
+Package pdftex.def Info: slides/assembled_final.pdf, page1 used on input line 6
+84.
+(pdftex.def)             Requested size: 469.76045pt x 352.32034pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 1>
+Package pdftex.def Info: slides/assembled_final.pdf, page1 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 1>
+Package pdftex.def Info: slides/assembled_final.pdf, page1 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 1>
+Package pdftex.def Info: slides/assembled_final.pdf, page1 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=93, page=2, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 2>
+Package pdftex.def Info: slides/assembled_final.pdf, page2 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 2>
+Package pdftex.def Info: slides/assembled_final.pdf, page2 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 1>
+Package pdftex.def Info: slides/assembled_final.pdf, page1 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 2>
+Package pdftex.def Info: slides/assembled_final.pdf, page2 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [12 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=117, page=3, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 3>
+Package pdftex.def Info: slides/assembled_final.pdf, page3 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 3>
+Package pdftex.def Info: slides/assembled_final.pdf, page3 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=118, page=4, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 4>
+Package pdftex.def Info: slides/assembled_final.pdf, page4 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 4>
+Package pdftex.def Info: slides/assembled_final.pdf, page4 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 3>
+Package pdftex.def Info: slides/assembled_final.pdf, page3 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 4>
+Package pdftex.def Info: slides/assembled_final.pdf, page4 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [13 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=130, page=5, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 5>
+Package pdftex.def Info: slides/assembled_final.pdf, page5 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 5>
+Package pdftex.def Info: slides/assembled_final.pdf, page5 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=131, page=6, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 6>
+Package pdftex.def Info: slides/assembled_final.pdf, page6 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 6>
+Package pdftex.def Info: slides/assembled_final.pdf, page6 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 5>
+Package pdftex.def Info: slides/assembled_final.pdf, page5 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 6>
+Package pdftex.def Info: slides/assembled_final.pdf, page6 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [14 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=140, page=7, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 7>
+Package pdftex.def Info: slides/assembled_final.pdf, page7 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 7>
+Package pdftex.def Info: slides/assembled_final.pdf, page7 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=141, page=8, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 8>
+Package pdftex.def Info: slides/assembled_final.pdf, page8 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 8>
+Package pdftex.def Info: slides/assembled_final.pdf, page8 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 7>
+Package pdftex.def Info: slides/assembled_final.pdf, page7 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 8>
+Package pdftex.def Info: slides/assembled_final.pdf, page8 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [15 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=158, page=9, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 9>
+Package pdftex.def Info: slides/assembled_final.pdf, page9 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 9>
+Package pdftex.def Info: slides/assembled_final.pdf, page9 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=159, page=10, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 10>
+Package pdftex.def Info: slides/assembled_final.pdf, page10 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 10>
+Package pdftex.def Info: slides/assembled_final.pdf, page10 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 9>
+Package pdftex.def Info: slides/assembled_final.pdf, page9 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 10>
+Package pdftex.def Info: slides/assembled_final.pdf, page10 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [16 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=176, page=11, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 11>
+Package pdftex.def Info: slides/assembled_final.pdf, page11 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 11>
+Package pdftex.def Info: slides/assembled_final.pdf, page11 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=177, page=12, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 12>
+Package pdftex.def Info: slides/assembled_final.pdf, page12 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 12>
+Package pdftex.def Info: slides/assembled_final.pdf, page12 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 11>
+Package pdftex.def Info: slides/assembled_final.pdf, page11 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 12>
+Package pdftex.def Info: slides/assembled_final.pdf, page12 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [17 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=182, page=13, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 13>
+Package pdftex.def Info: slides/assembled_final.pdf, page13 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 13>
+Package pdftex.def Info: slides/assembled_final.pdf, page13 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=183, page=14, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 14>
+Package pdftex.def Info: slides/assembled_final.pdf, page14 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 14>
+Package pdftex.def Info: slides/assembled_final.pdf, page14 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 13>
+Package pdftex.def Info: slides/assembled_final.pdf, page13 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 14>
+Package pdftex.def Info: slides/assembled_final.pdf, page14 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [18 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=189, page=15, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 15>
+Package pdftex.def Info: slides/assembled_final.pdf, page15 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 15>
+Package pdftex.def Info: slides/assembled_final.pdf, page15 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=190, page=16, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 16>
+Package pdftex.def Info: slides/assembled_final.pdf, page16 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 16>
+Package pdftex.def Info: slides/assembled_final.pdf, page16 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 15>
+Package pdftex.def Info: slides/assembled_final.pdf, page15 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 16>
+Package pdftex.def Info: slides/assembled_final.pdf, page16 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [19 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=200, page=17, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 17>
+Package pdftex.def Info: slides/assembled_final.pdf, page17 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 17>
+Package pdftex.def Info: slides/assembled_final.pdf, page17 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=201, page=18, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 18>
+Package pdftex.def Info: slides/assembled_final.pdf, page18 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 18>
+Package pdftex.def Info: slides/assembled_final.pdf, page18 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 17>
+Package pdftex.def Info: slides/assembled_final.pdf, page17 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 18>
+Package pdftex.def Info: slides/assembled_final.pdf, page18 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [20 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=223, page=19, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 19>
+Package pdftex.def Info: slides/assembled_final.pdf, page19 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 19>
+Package pdftex.def Info: slides/assembled_final.pdf, page19 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=224, page=20, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 20>
+Package pdftex.def Info: slides/assembled_final.pdf, page20 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 20>
+Package pdftex.def Info: slides/assembled_final.pdf, page20 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 19>
+Package pdftex.def Info: slides/assembled_final.pdf, page19 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 20>
+Package pdftex.def Info: slides/assembled_final.pdf, page20 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [21 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=296, page=21, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 21>
+Package pdftex.def Info: slides/assembled_final.pdf, page21 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 21>
+Package pdftex.def Info: slides/assembled_final.pdf, page21 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=297, page=22, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 22>
+Package pdftex.def Info: slides/assembled_final.pdf, page22 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 22>
+Package pdftex.def Info: slides/assembled_final.pdf, page22 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 21>
+Package pdftex.def Info: slides/assembled_final.pdf, page21 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 22>
+Package pdftex.def Info: slides/assembled_final.pdf, page22 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [22 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=342, page=23, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 23>
+Package pdftex.def Info: slides/assembled_final.pdf, page23 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 23>
+Package pdftex.def Info: slides/assembled_final.pdf, page23 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=343, page=24, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 24>
+Package pdftex.def Info: slides/assembled_final.pdf, page24 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 24>
+Package pdftex.def Info: slides/assembled_final.pdf, page24 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 23>
+Package pdftex.def Info: slides/assembled_final.pdf, page23 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 24>
+Package pdftex.def Info: slides/assembled_final.pdf, page24 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [23 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=356, page=25, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 25>
+Package pdftex.def Info: slides/assembled_final.pdf, page25 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 25>
+Package pdftex.def Info: slides/assembled_final.pdf, page25 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+
+<slides/assembled_final.pdf, id=357, page=26, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 26>
+Package pdftex.def Info: slides/assembled_final.pdf, page26 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 26>
+Package pdftex.def Info: slides/assembled_final.pdf, page26 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 25>
+Package pdftex.def Info: slides/assembled_final.pdf, page25 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 26>
+Package pdftex.def Info: slides/assembled_final.pdf, page26 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [24 <./slides/assembled_final.pdf> <./slides/assembled_final.pdf
+
+pdfTeX warning: pdflatex (file ./slides/assembled_final.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <slides/assembled_final.pdf, id=363, page=27, 722.7pt x 542.025pt>
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 27>
+Package pdftex.def Info: slides/assembled_final.pdf, page27 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 27>
+Package pdftex.def Info: slides/assembled_final.pdf, page27 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 1>
+Package pdftex.def Info: slides/assembled_final.pdf, page1 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 1>
+Package pdftex.def Info: slides/assembled_final.pdf, page1 used on input line 6
+84.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+File: slides/assembled_final.pdf Graphic file (type pdf)
+
+<use slides/assembled_final.pdf, page 27>
+Package pdftex.def Info: slides/assembled_final.pdf, page27 used on input line 
+684.
+(pdftex.def)             Requested size: 816.07909pt x 612.05931pt.
+ [25 <./slides/assembled_final.pdf>]
 
 AED: lastpage setting LastPage
-[6 <./figures/schedule_update.png>] (./final_report.aux) ) 
+(./final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 5306 strings out of 493488
- 81527 string characters out of 3141326
- 154901 words of memory out of 3000000
- 8483 multiletter control sequences out of 15000+200000
- 9507 words of font info for 33 fonts, out of 3000000 for 9000
+ 6648 strings out of 493488
+ 102753 string characters out of 3141326
+ 183131 words of memory out of 3000000
+ 9795 multiletter control sequences out of 15000+200000
+ 10113 words of font info for 35 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,11n,74p,275b,524s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2
-012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/20
-12/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/201
-2/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/201
-2/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2012
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2012/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2012/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2012/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2012/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2012/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2012/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmti8.pfb>
-Output written on final_report.pdf (6 pages, 1746515 bytes).
+ 41i,18n,74p,275b,565s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
+.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
+b></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
+ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on final_report.pdf (25 pages, 3235240 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 424 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 251 words of extra memory for PDF output out of 10000 (max. 10000000)
 

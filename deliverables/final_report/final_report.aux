@@ -7,7 +7,6 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {I.A}Background}{1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {I.A.1}Reynolds-Averaged Navier-Stokes Equations}{1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {I.A.2}Cell-centered, Finite Volume discretization}{1}}
-\citation{roget:12}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {I.A.3}Moving mesh calculation}{2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Chimera, overlapping grid for moving airfoil simulation\relax }}{2}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
@@ -15,42 +14,56 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {I.A.4}Motivation for efficient wall distance computation}{2}}
 \@writefile{toc}{\contentsline {section}{\numberline {II}Design and optimization approach}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {II.A}Brute force method}{2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {II.A.1}Complexity}{2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {II.A.2}Parallelization}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {II.B}Advancing boundary method}{2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Main application diagram\relax }}{3}}
 \newlabel{f:main_application}{{2}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Advancing Boundary - Preprocessor\relax }}{3}}
-\newlabel{f:ab_preprocessor}{{3}{3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {II.B.1}Complexity}{3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {II.B.2}Parallelization}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Advancing Boundary - Wall distance calculation\relax }}{4}}
-\newlabel{f:ab_diagram}{{4}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Application performance and results}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {III..3}Problem set}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Computational grid and corresponding wall distance field\relax }}{4}}
-\newlabel{f:circle}{{5}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {III..4}Brute-force algorithm}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {III..5}Advancing boundary algorithm}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Initial auxiliary cell struct\relax }}{5}}
-\newlabel{f:initial_aux_cell}{{6}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Auxiliary cell struct versions\relax }}{5}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Schedule and division of work}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Brute force method\relax }}{3}}
+\newlabel{f:bf_1}{{3}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Brute force serial implementation\relax }}{3}}
+\newlabel{f:bf_2}{{4}{3}}
+\citation{roget:12}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {II.A.1}Complexity}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {II.A.2}Parallelization}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Brute force Block-per-cell implementation\relax }}{4}}
+\newlabel{f:bf_3}{{5}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Brute force Thread-per-cell implementation\relax }}{5}}
+\newlabel{f:bf_4}{{6}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II.B}Advancing boundary method}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Advancing Boundary - Preprocessor\relax }}{5}}
+\newlabel{f:ab_preprocessor}{{7}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {II.B.1}Complexity}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {II.B.2}Parallelization}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Advancing Boundary - Wall distance calculation\relax }}{6}}
+\newlabel{f:ab_diagram}{{8}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Application performance and results}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {III..3}Problem set}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Computational grid and corresponding wall distance field\relax }}{6}}
+\newlabel{f:circle}{{9}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {III..4}Brute-force algorithm}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Brute force algorithm performance\relax }}{7}}
+\newlabel{t:bf_performance}{{1}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {III..5}Advancing boundary algorithm}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Initial auxiliary cell struct\relax }}{8}}
+\newlabel{f:initial_aux_cell}{{10}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Auxiliary cell struct versions\relax }}{8}}
 \citation{*}
 \bibdata{bibliography}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Serial ``Advancing Boundary'' algorithm development and performance\relax }}{9}}
+\newlabel{t:serial}{{2}{9}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Parallel ``Advancing Boundary'' algorithm development and performance\relax }}{9}}
+\newlabel{t:parallel}{{3}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Schedule and division of work}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Development schedule and division of work\relax }}{9}}
+\newlabel{f:schedule}{{12}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV.A}Self-assessment: Nathan Wukie}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV.B}Self-assessment: Vasanth Ganapathy}{9}}
 \bibcite{allmaras:12}{1}
 \bibcite{hirsch:94}{2}
 \bibcite{galbraith:13phd}{3}
 \bibcite{roget:12}{4}
 \bibstyle{aiaa}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Serial ``Advancing Boundary'' algorithm development and performance\relax }}{6}}
-\newlabel{t:serial}{{1}{6}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Parallel ``Advancing Boundary'' algorithm development and performance\relax }}{6}}
-\newlabel{t:parallel}{{2}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV.A}Self-assessment: Nathan Wukie}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV.B}Self-assessment: Vasanth Ganapathy}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Development schedule and division of work\relax }}{6}}
-\newlabel{f:schedule}{{8}{6}}
-\newlabel{LastPage}{{}{6}}
-\xdef\lastpage@lastpage{6}
+\@writefile{toc}{\contentsline {section}{Appendices}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Source code}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Presentation slides}{11}}
+\newlabel{LastPage}{{}{25}}
+\xdef\lastpage@lastpage{25}
 \gdef\lastpage@lastpageHy{}
